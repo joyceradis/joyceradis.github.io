@@ -12,17 +12,5 @@
       "destination": "/outubro-rosa/",
       "permanent": false
     }
-  ],
-  "rewrites": [
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "host",
-          "value": "drajoyceradis.com"
-        }
-      ],
-      "destination": "/inicio/index.html"
-    }
   ]
 }

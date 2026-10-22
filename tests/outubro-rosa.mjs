@@ -39,12 +39,17 @@ if (size < 2000) fail(`PDF pequeno demais (${size} bytes)`);
 if (!(await page.isVisible('.pix-qr'))) fail('QR Code do Pix não aparece');
 
 // Página inicial do site
-const home = new URL('../inicio/', BASE).href;
+const home = new URL('../index.html', BASE).href;
 await page.goto(home);
 await page.waitForLoadState('networkidle');
 if (!(await page.isVisible('h1'))) fail('título da página inicial não aparece');
-if (!(await page.isVisible('.retrato img'))) fail('foto da página inicial não aparece');
-if (!(await page.getAttribute('[data-agendar]', 'href') || '').startsWith('https://')) fail('botão Agendar sem link');
+if (!(await page.isVisible('.hero-foto img'))) fail('foto da página inicial não aparece');
+for (const p of ['sobre/', 'atendimentos/', 'domiciliar/', 'agendar/']) {
+  const r = await page.request.get(new URL('../' + p, BASE).href);
+  if (r.status() !== 200) fail(`página ${p} não abre (${r.status()})`);
+}
+await page.goto(home);
+if (!(await page.getAttribute('.hero .btn', 'href'))) fail('botão Agendar sem link');
 if (await page.evaluate(() => document.documentElement.scrollWidth) > 390) fail('rolagem horizontal na página inicial');
 
 if (errors.length) fail('erros na página:\n  ' + errors.join('\n  '));
