@@ -54,6 +54,7 @@ a{color:inherit}button,input,select{font:inherit}button{cursor:pointer}
 fieldset.field{border:0;padding:0;margin:0 0 20px}
 .options{display:grid;gap:7px}
 .option{border:1px solid #e8dfdd;background:#fff;display:flex;align-items:center;gap:11px;min-height:44px;padding:9px 12px;color:#4e4449;font:400 12px/1.45 var(--sans);transition:background .15s,border-color .15s;cursor:pointer}
+fieldset.field .option{display:flex;align-items:center;font:400 12px/1.45 var(--sans);margin:0;color:#4e4449}
 .option:hover,.option:has(input:checked){background:#f9f1f2;border-color:#cfa7b1}
 .option input{margin:0;width:16px;height:16px;accent-color:var(--plum);flex:none}
 .hint{margin:9px 0 0;color:var(--muted);font:400 10.5px/1.6 var(--sans)}
