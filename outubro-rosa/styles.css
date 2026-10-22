@@ -365,6 +365,28 @@ input:focus,select:focus,textarea:focus{box-shadow:0 0 0 3px rgba(155,52,99,.14)
 .foot-brand small{color:var(--gold-2)}
 .foot-note{border-top-color:rgba(220,198,163,.22)}
 
+/* ---------- Sem enfeites de modelo pronto: superfícies planas, menos efeitos ---------- */
+.brand{display:grid;justify-items:center;gap:0}
+.card{border:1px solid #eadbe1;border-radius:18px;background:#fff;-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:0 1px 2px rgba(74,32,55,.05),0 18px 40px -34px rgba(74,32,55,.35)}
+.hero>*{animation:none}
+.kicker{letter-spacing:.16em}
+.btn{border-radius:12px;background:var(--rose);box-shadow:none}
+.btn:hover{background:var(--rose-deep)}
+.btn.ghost{border-radius:12px}
+.btn.soft{border-radius:12px}
+.bar i{background:var(--rose)}
+.prog-name{color:var(--rose)}
+.result #share::after{display:none}
+.track li:first-child .t-dot,.track[data-stage="2"] li:nth-child(2) .t-dot{animation:none;box-shadow:none}
+.dm-disc{filter:none}
+.file-ic{background:var(--rose)}
+.pix{padding-top:24px;border-color:#eadbe1;border-radius:16px;background:#fdf9f8;box-shadow:none}
+.pix-key{border:1px solid #eadbe1;border-radius:12px;background:#fff}
+.pk-btn{border-radius:10px}
+.pix-thanks{font-style:normal;font-family:var(--sans);font-size:.9rem;font-weight:500}
+.support{border-top-color:#e6d6dc}
+.dlg h2{margin-top:0}
+
 /* ---------- Telas maiores ---------- */
 @media (min-width:600px){
   .row{grid-template-columns:repeat(2,minmax(0,1fr))}

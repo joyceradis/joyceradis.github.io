@@ -18,9 +18,9 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preload" href="fonts/fraunces-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=17">
+<link rel="stylesheet" href="styles.css?v=18">
 <script defer src="vendor/jspdf.umd.min.js"></script>
-<script type="module" src="app.js?v=12"></script>
+<script type="module" src="app.js?v=13"></script>
 </head>
 <body>
 <svg class="sprite" aria-hidden="true" focusable="false">
@@ -41,22 +41,17 @@
 
 <header class="top">
  <div class="top-in">
-  <a class="brand" href="#topo" aria-label="Dra. Joyce Radis, início da página"><span class="mono" aria-hidden="true">JR</span><span class="brand-t"><strong>Dra. Joyce Radis</strong><small>Médica · CRM-ES 21188</small></span></a>
+  <a class="brand" href="#topo" aria-label="Dra. Joyce Radis, início da página"><strong>Dra. Joyce Radis</strong><small>Médica · CRM-ES 21188</small></a>
  </div>
 </header>
 
 <main id="topo" class="stage">
  <section class="hero" aria-labelledby="h1">
-  <p class="kicker orn">Uma ação da Dra. Joyce Radis</p>
+  <p class="kicker">Uma ação da Dra. Joyce Radis</p>
   <h1 id="h1">Outubro Rosa</h1>
   <img class="hero-flor" src="art/flor.webp" width="367" height="388" alt="" decoding="async">
   <p class="hero-q">Seus exames estão em dia?</p>
   <p class="lead">Nesta ação, preencha em 3 minutos e a Dra. Joyce prepara seus pedidos de exames de mama e ginecológicos.</p>
-  <ul class="trust" aria-label="Como funciona">
-   <li><svg aria-hidden="true"><use href="#i-search"/></svg><span>Avaliação médica individual</span></li>
-   <li><svg aria-hidden="true"><use href="#i-lock"/></svg><span>Ficha sigilosa no seu aparelho</span></li>
-   <li><svg aria-hidden="true"><use href="#i-doc"/></svg><span>Pedido para plano ou particular</span></li>
-  </ul>
  </section>
 
  <section class="card" id="ficha" aria-labelledby="stepTitle">
@@ -186,7 +181,6 @@
    <p class="track-cap" id="trackCap">A Dra. Joyce analisa e devolve seus pedidos de exames, para usar no plano de saúde ou onde preferir.</p>
 
    <aside class="pix" aria-labelledby="pixH">
-    <span class="pix-badge" aria-hidden="true"><svg><use href="#i-heart"/></svg></span>
     <h3 id="pixH">Deseja apoiar esta ação?</h3>
     <p class="pix-lead">Opcional, de qualquer valor.</p>
     <img class="pix-qr" src="pix-qr.svg" width="148" height="148" alt="QR Code Pix para apoiar a Ação Outubro Rosa">
@@ -195,7 +189,7 @@
      <span class="pk-btn"><svg aria-hidden="true"><use href="#i-copy"/></svg><span>Copiar chave Pix</span></span>
     </button>
     <button type="button" class="link pix-cc" data-copy="pixPayload"><span>Copiar Pix copia e cola</span></button>
-    <p class="pix-thanks" id="pixThanks" hidden><svg aria-hidden="true"><use href="#i-heart"/></svg> Gratidão pelo seu carinho</p>
+    <p class="pix-thanks" id="pixThanks" hidden>Obrigada pelo apoio.</p>
    </aside>
 
    <div class="r-more">
@@ -206,7 +200,6 @@
  </section>
 
  <section class="support" aria-labelledby="supportT">
-  <p class="kicker">Ação Outubro Rosa</p>
   <h2 id="supportT">Apoie esta ação</h2>
   <p>Se quiser contribuir, o Pix está aqui. É opcional e não muda a sua ficha.</p>
   <button type="button" class="btn soft" data-open-pix>Ver chave Pix</button>
@@ -215,7 +208,7 @@
 
 <footer class="foot">
  <div class="foot-in">
-  <div class="foot-brand"><span class="mono" aria-hidden="true">JR</span><strong>Dra. Joyce Radis de Souza de Oliveira</strong><small>Médica · CRM-ES 21188 · Espírito Santo</small></div>
+  <div class="foot-brand"><strong>Dra. Joyce Radis de Souza de Oliveira</strong><small>Médica · CRM-ES 21188 · Espírito Santo</small></div>
   <nav class="foot-links" aria-label="Links do rodapé">
    <a href="https://wa.me/5527998134032" target="_blank" rel="noopener noreferrer">WhatsApp</a>
    <button type="button" class="link" id="openPrivacy2">Privacidade</button>
@@ -229,7 +222,6 @@
 
 <dialog id="pixDialog" class="dlg" aria-labelledby="pixT">
  <button type="button" class="dlg-x" data-close aria-label="Fechar">×</button>
- <p class="eyebrow left">Ação Outubro Rosa</p>
  <h2 id="pixT">Apoie esta ação</h2>
  <p>A contribuição é voluntária, de qualquer valor, e não é condição para o atendimento.</p>
  <img class="qr" src="pix-qr.svg" width="228" height="228" alt="QR Code Pix para apoiar a ação">
@@ -242,7 +234,6 @@
 
 <dialog id="privacyDialog" class="dlg" aria-labelledby="privT">
  <button type="button" class="dlg-x" data-close aria-label="Fechar">×</button>
- <p class="eyebrow left">Transparência</p>
  <h2 id="privT">Suas informações</h2>
  <p>A responsável pelo tratamento após o compartilhamento é a Dra. Joyce Radis de Souza de Oliveira, CRM-ES 21188, contato@drajoyceradis.com. O PDF é gerado exclusivamente no seu aparelho. Nenhuma resposta é transmitida ao GitHub nem guardada em servidor próprio.</p>
  <p>Para preencher o endereço, somente o CEP digitado é consultado no serviço ViaCEP, sujeito à política desse serviço. As fontes e a biblioteca de PDF são carregadas desta mesma página.</p>

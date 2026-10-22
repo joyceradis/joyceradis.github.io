@@ -173,10 +173,10 @@ function burst() {
   if (smooth === 'auto' || !Element.prototype.animate) return;
   const host = $('doneMark');
   const colors = ['#b23f77', '#d86a9f', '#e8a3c2', '#f6c3da', '#c9558e'];
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < 12; i++) {
     const p = Object.assign(document.createElement('i'), { className: 'petal' });
     p.style.background = colors[i % colors.length];
-    const a = (i / 20) * Math.PI * 2 + Math.random() * .4;
+    const a = (i / 12) * Math.PI * 2 + Math.random() * .4;
     const dist = 62 + Math.random() * 70;
     const dx = Math.cos(a) * dist, dy = Math.sin(a) * dist * .8;
     const rot = (Math.random() - .5) * 540;
