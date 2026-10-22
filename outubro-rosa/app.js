@@ -150,12 +150,55 @@ function finish() {
     return;
   }
   wizard.hidden = true;
-  $('rName').textContent = firstName(d.nome) || 'você';
+  const nome = firstName(d.nome);
+  const hello = $('rHello');
+  if (nome) { hello.textContent = 'Pronto, '; hello.append(Object.assign(document.createElement('em'), { textContent: nome }), '!'); }
+  else hello.textContent = 'Ficha pronta!';
   $('rAttn').hidden = d.sintomas !== 'Sim';
+  $('fileName').textContent = ficha.file.name;
+  $('fileMeta').textContent = `PDF · ${Math.max(1, Math.round(ficha.file.size / 1024))} KB · pronto para enviar`;
   $('waText').href = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(textSummary(d))}`;
-  $('result').hidden = false;
-  $('result').focus({ preventScroll: true });
-  scrollTo({ top: Math.max(0, $('result').getBoundingClientRect().top + scrollY - 84), behavior: smooth });
+  setStage(1);
+  document.body.classList.add('is-done');
+  const res = $('result');
+  res.hidden = false;
+  res.querySelectorAll('.result > *').forEach(el => { el.style.animation = 'none'; void el.offsetWidth; el.style.animation = ''; });
+  res.focus({ preventScroll: true });
+  scrollTo({ top: Math.max(0, res.getBoundingClientRect().top + scrollY - 84), behavior: smooth });
+  burst();
+}
+
+/* Pétalas que saem do check: só decoração, desligadas com movimento reduzido */
+function burst() {
+  if (smooth === 'auto' || !Element.prototype.animate) return;
+  const host = $('doneMark');
+  const colors = ['#b23f77', '#d86a9f', '#e8a3c2', '#f6c3da', '#c9558e'];
+  for (let i = 0; i < 20; i++) {
+    const p = Object.assign(document.createElement('i'), { className: 'petal' });
+    p.style.background = colors[i % colors.length];
+    const a = (i / 20) * Math.PI * 2 + Math.random() * .4;
+    const dist = 62 + Math.random() * 70;
+    const dx = Math.cos(a) * dist, dy = Math.sin(a) * dist * .8;
+    const rot = (Math.random() - .5) * 540;
+    host.append(p);
+    p.animate([
+      { transform: 'translate(0,0) rotate(0deg) scale(.2)', opacity: 0 },
+      { opacity: 1, offset: .12 },
+      { opacity: .9, offset: .65 },
+      { transform: `translate(${dx}px,${dy + 46}px) rotate(${rot}deg) scale(${.7 + Math.random() * .5})`, opacity: 0 }
+    ], { duration: 1300 + Math.random() * 700, delay: 560, easing: 'cubic-bezier(.12,.75,.3,1)', fill: 'both' }).onfinish = () => p.remove();
+  }
+  setTimeout(() => navigator.vibrate?.(16), 600);
+}
+
+/* Linha do tempo: 1 = falta enviar, 2 = enviada (a Dra. Joyce analisa) */
+function setStage(n) {
+  $('track').dataset.stage = n;
+  $('share').classList.toggle('sent', n === 2);
+  $('share').querySelector('span').textContent = n === 2 ? 'Enviar de novo' : 'Enviar à Dra. Joyce';
+  $('trackCap').textContent = n === 2
+    ? 'Recebido! A Dra. Joyce analisa sua ficha e devolve seus pedidos de exames.'
+    : 'A Dra. Joyce analisa e devolve seus pedidos de exames, para usar no plano de saúde ou onde preferir.';
 }
 
 function saveFile(file) {
@@ -170,6 +213,8 @@ $('share').addEventListener('click', async () => {
   try {
     if (navigator.canShare?.({ files: [ficha.file] })) {
       await navigator.share({ files: [ficha.file], title: 'Ficha Outubro Rosa | Dra. Joyce Radis', text: 'Ficha confidencial para avaliação médica individual.' });
+      $('shareHint').textContent = '';
+      setStage(2);
     } else {
       saveFile(ficha.file);
       $('shareHint').textContent = 'PDF baixado. Anexe o arquivo na conversa com a Dra. Joyce no WhatsApp, ou envie como mensagem de texto.';
@@ -178,12 +223,13 @@ $('share').addEventListener('click', async () => {
     if (err?.name !== 'AbortError') $('shareHint').textContent = 'Não foi possível abrir o compartilhamento. Use Baixar PDF ou envie como mensagem de texto.';
   }
 });
-$('editAgain').addEventListener('click', () => { $('result').hidden = true; wizard.hidden = false; goTo(TOTAL); });
+$('waText').addEventListener('click', () => setStage(2));
+$('editAgain').addEventListener('click', () => { $('result').hidden = true; document.body.classList.remove('is-done'); wizard.hidden = false; goTo(TOTAL); });
 $('shareFriend').addEventListener('click', async () => {
   const data = { title: 'Ação Outubro Rosa', text: 'Fiz minha ficha da Ação Outubro Rosa com a Dra. Joyce Radis. Leva 3 minutos:', url: CONFIG.siteUrl };
   try {
     if (navigator.share) await navigator.share(data);
-    else { await navigator.clipboard.writeText(`${data.text} ${data.url}`); $('shareFriend').textContent = 'Link copiado. É só colar na conversa.'; }
+    else { await navigator.clipboard.writeText(`${data.text} ${data.url}`); $('shareFriend').querySelector('span').textContent = 'Link copiado!'; }
   } catch { /* compartilhamento cancelado */ }
 });
 
@@ -197,7 +243,7 @@ document.querySelectorAll('dialog').forEach(dlg => dlg.addEventListener('click',
 
 /* Botões [data-copy="pixEmail|pixPayload"], na tela final e no diálogo */
 async function copyPix(btn) {
-  const span = btn.querySelector('span');
+  const span = btn.querySelector('.pk-btn span') || btn.querySelector('span');
   btn.dataset.label ??= span.textContent;
   const text = CONFIG[btn.dataset.copy];
   try { await navigator.clipboard.writeText(text); }
@@ -207,7 +253,8 @@ async function copyPix(btn) {
     const ok = document.execCommand('copy'); t.remove();
     if (!ok) { span.textContent = 'Use o QR Code'; setTimeout(() => { span.textContent = btn.dataset.label; }, 2400); return; }
   }
-  span.textContent = 'Copiado, obrigada!';
+  span.textContent = btn.classList.contains('pix-key') ? 'Copiado!' : 'Copiado, obrigada!';
+  if (btn.closest('.pix')) $('pixThanks').hidden = false;
   $('copyFb').textContent = 'Copiado para a área de transferência.';
   btn.classList.add('done');
   setTimeout(() => { span.textContent = btn.dataset.label; btn.classList.remove('done'); $('copyFb').textContent = ''; }, 2400);
