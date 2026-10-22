@@ -7,3 +7,7 @@ A página raiz redireciona para o produto **Quem Votar?**, publicado e mantido s
 https://joyceradis.github.io/Quem-Votar/
 
 O conteúdo do produto não é duplicado neste repositório.
+
+## Outubro Rosa
+
+A ficha de pré-avaliação do Outubro Rosa fica em `/outubro-rosa/` e funciona sem servidor: o PDF é gerado no aparelho da paciente e só chega à médica se ela enviar pelo WhatsApp. Número de contato, chave Pix e endereço público ficam no objeto `CONFIG` no topo de `outubro-rosa/app.js`. Fontes, biblioteca de PDF e ilustrações são servidas da própria pasta.
