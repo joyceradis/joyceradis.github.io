@@ -3,226 +3,142 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#fff3f7">
+<meta name="theme-color" content="#3a182c">
 <meta name="robots" content="noindex,nofollow">
 <meta name="referrer" content="no-referrer">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; connect-src https://viacep.com.br; img-src 'self' data:; form-action 'none'; object-src 'none'; base-uri 'none'; frame-src 'none'">
-<title>Peça seus exames de mama e ginecológicos · Outubro Rosa · Dra. Joyce Radis</title>
-<meta name="description" content="Preencha uma ficha de 3 minutos e a Dra. Joyce Radis prepara seus pedidos de mamografia, ultrassom das mamas, preventivo e exames ginecológicos. Sem cadastro.">
+<title>Ação Outubro Rosa · Peça seus exames de mama e ginecológicos · Dra. Joyce Radis</title>
+<meta name="description" content="Ação Outubro Rosa: preencha uma ficha de 3 minutos e a Dra. Joyce Radis prepara seus pedidos de mamografia, ultrassom das mamas, preventivo e exames ginecológicos. Sem cadastro.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:title" content="Peça seus exames de mama e ginecológicos · Outubro Rosa">
+<meta property="og:title" content="Ação Outubro Rosa · Peça seus exames de mama e ginecológicos">
 <meta property="og:description" content="Ficha de 3 minutos. A Dra. Joyce analisa e prepara seus pedidos de exame.">
 <meta property="og:image" content="https://joyceradis.github.io/outubro-rosa/art/og.jpg">
 <meta property="og:url" content="https://joyceradis.github.io/outubro-rosa/">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preload" href="fonts/fraunces-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=12">
+<link rel="stylesheet" href="styles.css?v=13">
 <script defer src="vendor/jspdf.umd.min.js"></script>
-<script defer src="app.js?v=8"></script>
+<script type="module" src="app.js?v=9"></script>
 </head>
 <body>
-<svg width="0" height="0" aria-hidden="true" focusable="false" class="sprite">
+<svg class="sprite" aria-hidden="true" focusable="false">
  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h13m-5-5.5L18.5 12 13 17.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
  <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H6m5-5.5L5.5 12 11 17.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="9.5" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8.5 10.5V8a3.5 3.5 0 017 0v2.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
  <symbol id="i-send" viewBox="0 0 24 24"><path d="M20.5 3.5L10 14m10.5-10.5L14 20.5l-3.7-6.8L3.5 10z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v11m-5-4.5l5 5 5-5M5 20h14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8.5" y="8.5" width="11" height="11" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M15.5 8.5V6.5a2 2 0 00-2-2h-7a2 2 0 00-2 2v7a2 2 0 002 2h2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
- <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0112 7.3a4.3 4.3 0 017.5 2.5C19.5 15.4 12 20 12 20z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
 </svg>
 
 <a class="skip" href="#ficha">Ir para a ficha</a>
 
 <header class="top">
  <div class="top-in">
-  <a class="brand" href="#topo" aria-label="Dra. Joyce Radis, início da página"><span class="brand-t"><strong>Dra. Joyce Radis</strong><small>Médica · CRM-ES 21188</small></span></a>
+  <a class="brand" href="#topo" aria-label="Dra. Joyce Radis, início da página"><strong>Dra. Joyce Radis</strong><small>Médica · CRM-ES 21188</small></a>
  </div>
 </header>
 
 <main id="topo" class="stage">
  <section class="hero" aria-labelledby="h1">
+  <p class="kicker">Uma ação da Dra. Joyce Radis</p>
   <h1 id="h1">Outubro Rosa</h1>
   <img class="hero-flor" src="art/flor.webp" width="367" height="388" alt="" decoding="async">
   <p class="hero-q">Seus exames estão em dia?</p>
-  <p class="lead">Preencha em 3 minutos e a Dra. Joyce prepara seus pedidos de exames de mama e ginecológicos.</p>
+  <p class="lead">Nesta ação, preencha em 3 minutos e a Dra. Joyce prepara seus pedidos de exames de mama e ginecológicos.</p>
  </section>
 
  <section class="card" id="ficha" aria-labelledby="stepTitle">
-
   <div id="wizard" data-step="1">
    <div class="prog">
-    <div class="prog-top"><span class="prog-count">Passo <b id="pCur">1</b> de <span id="pTot">5</span></span><span class="prog-name" id="pName">Seus dados</span></div>
-    <svg class="wave" viewBox="0 0 300 12" preserveAspectRatio="none" aria-hidden="true">
-     <path class="w-track" pathLength="100" d="M0 6H300"/><path class="w-fill" pathLength="100" d="M0 6H300"/>
-    </svg>
+    <div class="prog-top"><span>Passo <b id="pCur">1</b> de <span id="pTot">5</span></span><span class="prog-name" id="pName">Seus dados</span></div>
+    <div class="bar"><i></i></div>
    </div>
 
    <form id="form" novalidate autocomplete="on">
 
-    <!-- 1 · Você -->
-    <section class="step" data-s="1" aria-labelledby="stepTitle">
+    <section class="step" data-s="1" hidden>
      <header class="step-h"><h2 id="stepTitle" tabindex="-1">Seus dados</h2></header>
-     <div class="field" data-f="nome"><label for="nome">Nome completo</label><input id="nome" name="nome" type="text" autocomplete="name" maxlength="120" placeholder="Como está no seu documento"><p class="msg" aria-live="polite"></p></div>
+     <div class="field"><label for="nome">Nome completo</label><input id="nome" name="nome" type="text" autocomplete="name" maxlength="120" placeholder="Como está no seu documento"></div>
      <div class="row">
-      <div class="field" data-f="nascimento"><label for="nascimento">Data de nascimento</label><input id="nascimento" name="nascimento" type="text" inputmode="numeric" autocomplete="bday" placeholder="DD/MM/AAAA" maxlength="10"><p class="msg" aria-live="polite"></p></div>
-      <div class="field" data-f="telefone"><label for="telefone">WhatsApp com DDD</label><input id="telefone" name="telefone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(27) 99999-9999" maxlength="16"><p class="msg" aria-live="polite"></p></div>
+      <div class="field"><label for="nascimento">Data de nascimento</label><input id="nascimento" name="nascimento" type="text" inputmode="numeric" autocomplete="bday" placeholder="DD/MM/AAAA" maxlength="10"></div>
+      <div class="field"><label for="telefone">WhatsApp com DDD</label><input id="telefone" name="telefone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(27) 99999-9999" maxlength="16"></div>
      </div>
     </section>
 
-    <!-- 2 · Exames -->
-    <section class="step" data-s="2" aria-labelledby="stepTitle" hidden>
+    <section class="step" data-s="2" hidden>
      <header class="step-h"><h2 tabindex="-1">Exames</h2></header>
-     <fieldset class="field" data-f="exames"><legend>O que você procura?</legend>
-      <div class="chips">
-       <label class="chip"><input type="checkbox" name="exames" value="Mamografia"><span>Mamografia</span></label>
-       <label class="chip"><input type="checkbox" name="exames" value="Ultrassonografia das mamas"><span>Ultrassom das mamas</span></label>
-       <label class="chip"><input type="checkbox" name="exames" value="Preventivo e exames ginecológicos de rotina"><span>Preventivo e exames ginecológicos</span></label>
-       <label class="chip"><input type="checkbox" name="exames" value="Quero orientação sobre quais exames fazer"><span>Não sei, quero orientação</span></label>
-      </div>
-      <p class="hint">A indicação final é da médica.</p><p class="msg" aria-live="polite"></p>
+     <fieldset class="q"><legend>O que você procura?</legend>
+      <div class="rows"><label><input type="checkbox" name="exames" value="Mamografia"><span>Mamografia</span></label><label><input type="checkbox" name="exames" value="Ultrassonografia das mamas"><span>Ultrassom das mamas</span></label><label><input type="checkbox" name="exames" value="Preventivo e exames ginecológicos de rotina"><span>Preventivo e exames ginecológicos</span></label><label><input type="checkbox" name="exames" value="Quero orientação sobre quais exames fazer"><span>Não sei, quero orientação</span></label></div>
+      <p class="hint">A indicação final é da médica.</p>
      </fieldset>
-     <fieldset class="field" data-f="mamografia"><legend>Quando foi sua última mamografia?</legend>
-      <div class="chips">
-       <label class="chip"><input type="radio" name="mamografia" value="Nunca fiz"><span>Nunca fiz</span></label>
-       <label class="chip"><input type="radio" name="mamografia" value="Há menos de 1 ano"><span>Menos de 1 ano</span></label>
-       <label class="chip"><input type="radio" name="mamografia" value="Há 1 a 2 anos"><span>1 a 2 anos</span></label>
-       <label class="chip"><input type="radio" name="mamografia" value="Há mais de 2 anos"><span>Mais de 2 anos</span></label>
-       <label class="chip"><input type="radio" name="mamografia" value="Não me lembro"><span>Não me lembro</span></label>
-      </div><p class="msg" aria-live="polite"></p>
-     </fieldset>
-     <fieldset class="field" data-f="preventivo"><legend>E o último preventivo ginecológico?</legend>
-      <div class="chips">
-       <label class="chip"><input type="radio" name="preventivo" value="Nunca fiz"><span>Nunca fiz</span></label>
-       <label class="chip"><input type="radio" name="preventivo" value="Há menos de 1 ano"><span>Menos de 1 ano</span></label>
-       <label class="chip"><input type="radio" name="preventivo" value="Há 1 a 3 anos"><span>1 a 3 anos</span></label>
-       <label class="chip"><input type="radio" name="preventivo" value="Há mais de 3 anos"><span>Mais de 3 anos</span></label>
-       <label class="chip"><input type="radio" name="preventivo" value="Não me lembro"><span>Não me lembro</span></label>
-      </div><p class="msg" aria-live="polite"></p>
-     </fieldset>
+     <fieldset class="q"><legend>Você tem prótese mamária?</legend><div class="seg"><label><input type="radio" name="protese" value="Não"><span>Não</span></label><label><input type="radio" name="protese" value="Sim"><span>Sim</span></label></div></fieldset>
+     <div class="field"><label for="mamografia">Última mamografia</label><select id="mamografia" name="mamografia"><option value="">Selecione</option><option>Nunca fiz</option><option>Há menos de 1 ano</option><option>Há 1 a 2 anos</option><option>Há mais de 2 anos</option><option>Não me lembro</option></select></div>
+     <div class="field"><label for="ultrassom">Último ultrassom das mamas</label><select id="ultrassom" name="ultrassom"><option value="">Selecione</option><option>Nunca fiz</option><option>Há menos de 1 ano</option><option>Há 1 a 2 anos</option><option>Há mais de 2 anos</option><option>Não me lembro</option></select></div>
+     <div class="field"><label for="preventivo">Último preventivo</label><select id="preventivo" name="preventivo"><option value="">Selecione</option><option>Nunca fiz</option><option>Há menos de 1 ano</option><option>Há 1 a 3 anos</option><option>Há mais de 3 anos</option><option>Não me lembro</option></select></div>
      <div class="panorama" id="panorama" hidden aria-live="polite"></div>
     </section>
 
-    <!-- 3 · História -->
-    <section class="step" data-s="3" aria-labelledby="stepTitle" hidden>
+    <section class="step" data-s="3" hidden>
      <header class="step-h"><h2 tabindex="-1">Sua saúde</h2><p>Responda conforme souber.</p></header>
-     <fieldset class="field" data-f="sintomas"><legend>Você nota alguma alteração nas mamas hoje?</legend>
-      <div class="chips">
-       <label class="chip"><input type="radio" name="sintomas" value="Não"><span>Não</span></label>
-       <label class="chip"><input type="radio" name="sintomas" value="Sim"><span>Sim</span></label>
-       <label class="chip"><input type="radio" name="sintomas" value="Prefiro conversar"><span>Prefiro conversar</span></label>
-      </div>
-      <div class="cond" id="condSintomas" hidden>
+     <fieldset class="q"><legend>Você nota alguma alteração nas mamas hoje?</legend>
+      <div class="seg"><label><input type="radio" name="sintomas" value="Não"><span>Não</span></label><label><input type="radio" name="sintomas" value="Sim"><span>Sim</span></label><label><input type="radio" name="sintomas" value="Prefiro conversar"><span>Prefiro conversar</span></label></div>
+      <div class="cond" data-when="sintomas:Sim" hidden>
        <p class="alert"><b>Nódulo, secreção ou mudança na pele da mama?</b> Procure atendimento presencial sem esperar. Informar aqui prioriza sua análise.</p>
-       <p class="sub">O que você percebeu? <span class="opt">se quiser contar</span></p>
-       <div class="chips">
-        <label class="chip"><input type="checkbox" name="sinais" value="Nódulo ou caroço"><span>Nódulo ou caroço</span></label>
-        <label class="chip"><input type="checkbox" name="sinais" value="Secreção pelo mamilo"><span>Secreção pelo mamilo</span></label>
-        <label class="chip"><input type="checkbox" name="sinais" value="Alteração na pele ou no mamilo"><span>Pele ou mamilo diferente</span></label>
-        <label class="chip"><input type="checkbox" name="sinais" value="Dor ou outro sintoma"><span>Dor ou outro</span></label>
-       </div>
-      </div><p class="msg" aria-live="polite"></p>
-     </fieldset>
-     <fieldset class="field" data-f="pessoal"><legend>Você já teve câncer de mama ou de ovário?</legend>
-      <div class="chips">
-       <label class="chip"><input type="radio" name="pessoal" value="Não"><span>Não</span></label>
-       <label class="chip"><input type="radio" name="pessoal" value="Sim"><span>Sim</span></label>
-       <label class="chip"><input type="radio" name="pessoal" value="Não sei"><span>Não sei</span></label>
-      </div><p class="msg" aria-live="polite"></p>
-     </fieldset>
-     <fieldset class="field" data-f="familia"><legend>Mãe, irmã, filha ou pai já tiveram câncer de mama ou de ovário?</legend>
-      <div class="chips">
-       <label class="chip"><input type="radio" name="familia" value="Não"><span>Não</span></label>
-       <label class="chip"><input type="radio" name="familia" value="Sim"><span>Sim</span></label>
-       <label class="chip"><input type="radio" name="familia" value="Não sei"><span>Não sei</span></label>
-      </div>
-      <div class="cond" id="condFamilia" hidden>
-       <p class="sub">Quem foi diagnosticado?</p>
-       <div class="chips">
-        <label class="chip"><input type="checkbox" name="parentes" value="Mãe"><span>Mãe</span></label>
-        <label class="chip"><input type="checkbox" name="parentes" value="Irmã"><span>Irmã</span></label>
-        <label class="chip"><input type="checkbox" name="parentes" value="Filha"><span>Filha</span></label>
-        <label class="chip"><input type="checkbox" name="parentes" value="Pai"><span>Pai</span></label>
-       </div>
-       <div class="field inner"><label for="familiaTipo">Tipo de câncer e idade <span class="opt">se souber</span></label><input id="familiaTipo" type="text" maxlength="160" placeholder="Ex.: mãe, mama, aos 44 anos"></div>
-      </div><p class="msg" aria-live="polite"></p>
-     </fieldset>
-     <fieldset class="field" data-f="genetica"><legend>Existe mutação genética de risco conhecida na família (como BRCA)?</legend>
-      <div class="chips">
-       <label class="chip"><input type="radio" name="genetica" value="Não"><span>Não</span></label>
-       <label class="chip"><input type="radio" name="genetica" value="Sim"><span>Sim</span></label>
-       <label class="chip"><input type="radio" name="genetica" value="Não sei"><span>Não sei</span></label>
-      </div><p class="msg" aria-live="polite"></p>
-     </fieldset>
-    <h3 class="part">Seu momento</h3>
-     <fieldset class="field" data-f="gestacao"><legend>Você está grávida ou amamentando?</legend>
-      <div class="chips">
-       <label class="chip"><input type="radio" name="gestacao" value="Não"><span>Não</span></label>
-       <label class="chip"><input type="radio" name="gestacao" value="Estou grávida"><span>Estou grávida</span></label>
-       <label class="chip"><input type="radio" name="gestacao" value="Estou amamentando"><span>Estou amamentando</span></label>
-       <label class="chip"><input type="radio" name="gestacao" value="Prefiro conversar"><span>Prefiro conversar</span></label>
-      </div><p class="msg" aria-live="polite"></p>
-     </fieldset>
-     <fieldset class="field" data-f="menopausa"><legend>Ciclo menstrual <span class="opt">opcional</span></legend>
-      <div class="chips">
-       <label class="chip"><input type="radio" name="menopausa" value="Ainda menstruo"><span>Ainda menstruo</span></label>
-       <label class="chip"><input type="radio" name="menopausa" value="Já entrei na menopausa"><span>Já entrei na menopausa</span></label>
-       <label class="chip"><input type="radio" name="menopausa" value="Não tenho certeza"><span>Não tenho certeza</span></label>
+       <div class="tags"><label><input type="checkbox" name="sinais" value="Nódulo ou caroço"><span>Nódulo ou caroço</span></label><label><input type="checkbox" name="sinais" value="Secreção pelo mamilo"><span>Secreção pelo mamilo</span></label><label><input type="checkbox" name="sinais" value="Pele ou mamilo diferente"><span>Pele ou mamilo diferente</span></label><label><input type="checkbox" name="sinais" value="Dor ou outro"><span>Dor ou outro</span></label></div>
       </div>
      </fieldset>
-     <fieldset class="field" data-f="hormonio"><legend>Usa hormônios? <span class="opt">opcional</span></legend>
-      <div class="chips">
-       <label class="chip"><input type="radio" name="hormonio" value="Não uso"><span>Não uso</span></label>
-       <label class="chip"><input type="radio" name="hormonio" value="Anticoncepcional"><span>Anticoncepcional</span></label>
-       <label class="chip"><input type="radio" name="hormonio" value="Reposição hormonal"><span>Reposição hormonal</span></label>
+     <fieldset class="q"><legend>Você já teve câncer de mama ou de ovário?</legend><div class="seg"><label><input type="radio" name="pessoal" value="Não"><span>Não</span></label><label><input type="radio" name="pessoal" value="Sim"><span>Sim</span></label><label><input type="radio" name="pessoal" value="Não sei"><span>Não sei</span></label></div></fieldset>
+     <fieldset class="q"><legend>Alguém da família teve câncer de mama ou de ovário?</legend>
+      <div class="seg"><label><input type="radio" name="familia" value="Não"><span>Não</span></label><label><input type="radio" name="familia" value="Sim"><span>Sim</span></label><label><input type="radio" name="familia" value="Não sei"><span>Não sei</span></label></div>
+      <div class="cond" data-when="familia:Sim" hidden>
+       <p class="sub">Quem?</p>
+       <div class="tags"><label><input type="checkbox" name="parentes" value="Mãe"><span>Mãe</span></label><label><input type="checkbox" name="parentes" value="Irmã"><span>Irmã</span></label><label><input type="checkbox" name="parentes" value="Filha"><span>Filha</span></label><label><input type="checkbox" name="parentes" value="Avó"><span>Avó</span></label><label><input type="checkbox" name="parentes" value="Tia"><span>Tia</span></label><label><input type="checkbox" name="parentes" value="Outra pessoa"><span>Outra pessoa</span></label></div>
+       <div class="field inner"><label for="familiaTipo">Tipo de câncer e idade <span class="opt">se souber</span></label><input id="familiaTipo" name="familiaTipo" type="text" maxlength="160" placeholder="Ex.: mãe, mama, aos 44 anos"></div>
       </div>
      </fieldset>
-     <fieldset class="field" data-f="protese"><legend>Tem prótese ou já fez cirurgia nas mamas? <span class="opt">opcional</span></legend>
-      <div class="chips">
-       <label class="chip"><input type="radio" name="protese" value="Não"><span>Não</span></label>
-       <label class="chip"><input type="radio" name="protese" value="Prótese de silicone"><span>Prótese de silicone</span></label>
-       <label class="chip"><input type="radio" name="protese" value="Outra cirurgia nas mamas"><span>Outra cirurgia</span></label>
-      </div>
-     </fieldset>
-     <div class="field" data-f="obs"><label for="obs">Observações <span class="opt">opcional</span></label><textarea id="obs" name="obs" rows="3" maxlength="400" placeholder="Exame alterado, dúvida ou qualquer informação relevante."></textarea></div>
+     <fieldset class="q"><legend>Há mutação genética de risco na família, como BRCA?</legend><div class="seg"><label><input type="radio" name="genetica" value="Não"><span>Não</span></label><label><input type="radio" name="genetica" value="Sim"><span>Sim</span></label><label><input type="radio" name="genetica" value="Não sei"><span>Não sei</span></label></div></fieldset>
+
+     <h3 class="part">Seu momento</h3>
+     <fieldset class="q"><legend>Gestação ou amamentação</legend><div class="seg"><label><input type="radio" name="gestacao" value="Não"><span>Não</span></label><label><input type="radio" name="gestacao" value="Grávida"><span>Grávida</span></label><label><input type="radio" name="gestacao" value="Amamentando"><span>Amamentando</span></label></div></fieldset>
+     <div class="row">
+      <div class="field"><label for="ciclo">Ciclo menstrual</label><select id="ciclo" name="ciclo"><option value="">Selecione</option><option>Ainda menstruo</option><option>Já entrei na menopausa</option><option>Não tenho certeza</option></select></div>
+      <div class="field"><label for="hormonio">Hormônios</label><select id="hormonio" name="hormonio"><option value="">Selecione</option><option>Não uso</option><option>Anticoncepcional</option><option>Reposição hormonal</option></select></div>
+     </div>
+     <div class="field"><label for="obs">Observações <span class="opt">opcional</span></label><textarea id="obs" name="obs" rows="3" maxlength="400" placeholder="Exame alterado, dúvida ou qualquer informação relevante."></textarea></div>
     </section>
 
-    <!-- 5 · Dados do pedido -->
-    <section class="step" data-s="4" aria-labelledby="stepTitle" hidden>
-     <header class="step-h"><h2 tabindex="-1">Dados para o pedido</h2><p>Necessários para o pedido médico.</p></header>
-     <div class="field" data-f="cpf"><label for="cpf">CPF</label><input id="cpf" name="cpf" type="text" inputmode="numeric" autocomplete="off" placeholder="000.0.000-00" maxlength="14"><p class="msg" aria-live="polite"></p></div>
-     <div class="field" data-f="cep"><label for="cep">CEP</label><input id="cep" name="cep" type="text" inputmode="numeric" autocomplete="postal-code" placeholder="00000-000" maxlength="9"><p class="hint" id="cepStatus" role="status" aria-live="polite">Ao digitar o CEP, preenchemos o endereço para você.</p><p class="msg" aria-live="polite"></p>
-      <button type="button" class="link" id="cepManual">Não sei meu CEP, prefiro digitar o endereço</button></div>
+    <section class="step" data-s="4" hidden>
+     <header class="step-h"><h2 tabindex="-1">Dados do pedido</h2><p>Necessários para o pedido médico.</p></header>
+     <div class="field"><label for="cpf">CPF</label><input id="cpf" name="cpf" type="text" inputmode="numeric" autocomplete="off" placeholder="000.000.000-00" maxlength="14"></div>
+     <div class="field"><label for="cep">CEP</label><input id="cep" name="cep" type="text" inputmode="numeric" autocomplete="postal-code" placeholder="00000-000" maxlength="9"><p class="hint" id="cepStatus" role="status" aria-live="polite">Ao digitar o CEP, preenchemos o endereço.</p><button type="button" class="link" id="cepManual">Prefiro digitar o endereço</button></div>
      <div id="addr" hidden>
-      <div class="field" data-f="logradouro"><label for="logradouro">Rua ou avenida</label><input id="logradouro" name="logradouro" autocomplete="address-line1" maxlength="120"><p class="msg" aria-live="polite"></p></div>
+      <div class="field"><label for="logradouro">Rua ou avenida</label><input id="logradouro" name="logradouro" autocomplete="address-line1" maxlength="120"></div>
       <div class="row">
-       <div class="field" data-f="numero"><label for="numero">Número</label><input id="numero" name="numero" autocomplete="off" maxlength="20" placeholder="Nº ou s/n"><p class="msg" aria-live="polite"></p></div>
-       <div class="field" data-f="complemento"><label for="complemento">Complemento <span class="opt">opcional</span></label><input id="complemento" name="complemento" autocomplete="address-line2" maxlength="90" placeholder="Casa, apto, bloco"></div>
+       <div class="field"><label for="numero">Número</label><input id="numero" name="numero" autocomplete="off" maxlength="20" placeholder="Nº ou s/n"></div>
+       <div class="field"><label for="complemento">Complemento <span class="opt">opcional</span></label><input id="complemento" name="complemento" autocomplete="address-line2" maxlength="90" placeholder="Casa, apto, bloco"></div>
       </div>
-      <div class="field" data-f="bairro"><label for="bairro">Bairro</label><input id="bairro" name="bairro" maxlength="80"><p class="msg" aria-live="polite"></p></div>
+      <div class="field"><label for="bairro">Bairro</label><input id="bairro" name="bairro" maxlength="80"></div>
       <div class="row row-city">
-       <div class="field" data-f="cidade"><label for="cidade">Cidade</label><input id="cidade" name="cidade" autocomplete="address-level2" maxlength="80"><p class="msg" aria-live="polite"></p></div>
-       <div class="field" data-f="uf"><label for="uf">UF</label><input id="uf" name="uf" autocomplete="address-level1" maxlength="2" placeholder="ES" autocapitalize="characters"><p class="msg" aria-live="polite"></p></div>
+       <div class="field"><label for="cidade">Cidade</label><input id="cidade" name="cidade" autocomplete="address-level2" maxlength="80"></div>
+       <div class="field"><label for="uf">UF</label><input id="uf" name="uf" autocomplete="address-level1" maxlength="2" placeholder="ES" autocapitalize="characters"></div>
       </div>
      </div>
     </section>
 
-    <!-- 6 · Atendimento -->
-    <section class="step" data-s="5" aria-labelledby="stepTitle" hidden>
+    <section class="step" data-s="5" hidden>
      <header class="step-h"><h2 tabindex="-1">Atendimento</h2></header>
-     <div class="plans">
-      <label class="plan on"><input type="radio" name="modalidade" value="Particular" checked><span class="plan-body"><strong>Particular</strong><small>Atendimento individual pela Dra. Joyce</small></span><span class="plan-dot" aria-hidden="true"></span></label>
-      <p class="sub plans-lbl">Convênios</p>
-      <div class="plan-off-list" role="group" aria-label="Convênios, não disponíveis neste atendimento">
-       <button type="button" class="plan-off" aria-disabled="true" data-plan="Bradesco Saúde"><svg aria-hidden="true"><use href="#i-lock"/></svg>Bradesco Saúde</button>
-       <button type="button" class="plan-off" aria-disabled="true" data-plan="Unimed"><svg aria-hidden="true"><use href="#i-lock"/></svg>Unimed</button>
-       <button type="button" class="plan-off" aria-disabled="true" data-plan="SulAmérica"><svg aria-hidden="true"><use href="#i-lock"/></svg>SulAmérica</button>
-       <button type="button" class="plan-off" aria-disabled="true" data-plan="Amil"><svg aria-hidden="true"><use href="#i-lock"/></svg>Amil</button>
-       <button type="button" class="plan-off" aria-disabled="true" data-plan="Outro convênio"><svg aria-hidden="true"><use href="#i-lock"/></svg>Outro</button>
-      </div>
-      <p class="plan-note" id="planNote" role="status" aria-live="polite">Atendimento particular, sem credenciamento a convênios.</p>
+     <label class="plan"><input type="radio" name="modalidade" value="Particular" checked><span class="plan-body"><strong>Particular</strong><small>Atendimento individual pela Dra. Joyce</small></span><span class="plan-dot" aria-hidden="true"></span></label>
+     <p class="sub plans-lbl">Convênios</p>
+     <div class="plan-off-list" role="group" aria-label="Convênios, não disponíveis neste atendimento">
+      <button type="button" class="plan-off" aria-disabled="true" data-plan="Bradesco Saúde"><svg aria-hidden="true"><use href="#i-lock"/></svg>Bradesco Saúde</button>
+      <button type="button" class="plan-off" aria-disabled="true" data-plan="Unimed"><svg aria-hidden="true"><use href="#i-lock"/></svg>Unimed</button>
+      <button type="button" class="plan-off" aria-disabled="true" data-plan="SulAmérica"><svg aria-hidden="true"><use href="#i-lock"/></svg>SulAmérica</button>
+      <button type="button" class="plan-off" aria-disabled="true" data-plan="Amil"><svg aria-hidden="true"><use href="#i-lock"/></svg>Amil</button>
+      <button type="button" class="plan-off" aria-disabled="true" data-plan="Outro convênio"><svg aria-hidden="true"><use href="#i-lock"/></svg>Outro</button>
      </div>
+     <p class="plan-note" id="planNote" role="status" aria-live="polite">Atendimento particular, sem credenciamento a convênios.</p>
      <p class="priv"><svg aria-hidden="true"><use href="#i-lock"/></svg><span>Seu PDF é gerado no seu aparelho e só chega à médica se você enviar. <button type="button" class="link inline" id="openPrivacy">Privacidade</button></span></p>
     </section>
 
@@ -234,10 +150,9 @@
    </form>
   </div>
 
-  <!-- Resultado -->
   <section id="result" class="result" hidden tabindex="-1" aria-labelledby="rTitle">
-   <span class="seal" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5.500 12.500l4.200 4.200L18.500 7.500" fill="none" stroke="currentColor" stroke-width="1.600" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-   <p class="eyebrow center"><span>Ficha concluída</span></p>
+   <span class="seal" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5.5 12.5l4.2 4.2L18.5 7.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+   <p class="eyebrow">Ficha concluída</p>
    <h2 id="rTitle">Parabéns, <span id="rName">você</span>.</h2>
    <p class="r-lead">Sua ficha está pronta. Agora é só enviá-la à Dra. Joyce.</p>
    <div class="r-attn" id="rAttn" hidden><b>Você assinalou alteração nas mamas.</b> Sua análise será priorizada. Se houver dor forte ou secreção com sangue, procure atendimento presencial.</div>
@@ -247,48 +162,40 @@
    </div>
    <p class="hint center" id="shareHint">Escolha o WhatsApp e a conversa com a Dra. Joyce.</p>
    <a class="link center-link" id="waText" href="#" target="_blank" rel="noopener noreferrer">Prefiro enviar como mensagem de texto</a>
-
    <ol class="next-steps"><li><b>Você envia a ficha</b></li><li><b>A Dra. Joyce analisa</b></li><li><b>Seus pedidos ficam prontos</b></li></ol>
-
-   <aside class="thanks">
-    <div>
-     <h3>Contribuição opcional</h3>
-     <p>Se quiser contribuir, o Pix está aqui. É opcional e não muda a sua ficha.</p>
-     <button type="button" class="btn soft" data-open-pix><svg aria-hidden="true"><use href="#i-heart"/></svg>Ver chave Pix</button>
-    </div>
-   </aside>
-
    <p class="signoff">Cuide-se com carinho.</p>
-   <div class="r-more">
-    <button type="button" class="link" id="shareFriend">Conhece alguém que precisa? Compartilhe esta página</button>
-    <button type="button" class="link" id="editAgain">Revisar minhas respostas</button>
-   </div>
+   <div class="r-more"><button type="button" class="link" id="shareFriend">Conhece alguém que precisa? Compartilhe esta página</button><button type="button" class="link" id="editAgain">Revisar minhas respostas</button></div>
   </section>
  </section>
 
-
+ <section class="support" aria-labelledby="supportT">
+  <p class="kicker">Ação Outubro Rosa</p>
+  <h2 id="supportT">Apoie esta ação</h2>
+  <p>Se quiser contribuir, o Pix está aqui. É opcional e não muda a sua ficha.</p>
+  <button type="button" class="btn soft" data-open-pix>Ver chave Pix</button>
+ </section>
 </main>
 
 <footer class="foot">
  <div class="foot-in">
-  <div class="foot-brand"><div><strong>Dra. Joyce Radis de Souza de Oliveira</strong><small>Médica · CRM-ES 21188 · Espírito Santo</small></div></div>
+  <div class="foot-brand"><strong>Dra. Joyce Radis de Souza de Oliveira</strong><small>Médica · CRM-ES 21188 · Espírito Santo</small></div>
   <nav class="foot-links" aria-label="Links do rodapé">
    <a href="https://wa.me/5527998134032" target="_blank" rel="noopener noreferrer">WhatsApp</a>
    <button type="button" class="link" id="openPrivacy2">Privacidade</button>
-   <button type="button" class="link accent" data-open-pix>Apoie este projeto</button>
+   <button type="button" class="link" data-open-pix>Apoie a ação</button>
   </nav>
   <p class="foot-note">Informações para avaliação médica individual. Não substitui consulta nem atende urgências.</p>
  </div>
 </footer>
 
-<a class="wa-fab" href="https://wa.me/5527998134032?text=Ol%C3%A1%2C%20Dra.%20Joyce!%20Vim%20pela%20p%C3%A1gina%20do%20Outubro%20Rosa." target="_blank" rel="noopener noreferrer" aria-label="Falar com a Dra. Joyce no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
+<a class="wa-fab" href="https://wa.me/5527998134032?text=Ol%C3%A1%2C%20Dra.%20Joyce!%20Vim%20pela%20p%C3%A1gina%20da%20A%C3%A7%C3%A3o%20Outubro%20Rosa." target="_blank" rel="noopener noreferrer" aria-label="Falar com a Dra. Joyce no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
 
 <dialog id="pixDialog" class="dlg" aria-labelledby="pixT">
  <button type="button" class="dlg-x" data-close aria-label="Fechar">×</button>
- <p class="eyebrow"><span>Apoie este projeto</span></p>
- <h2 id="pixT">Um Pix, se fizer sentido.</h2>
- <p>Esta página e o cuidado que vem com ela são feitos pela Dra. Joyce com carinho. A contribuição é voluntária, de qualquer valor, e não é condição para o atendimento.</p>
- <img class="qr" src="pix-qr.svg" width="228" height="228" alt="QR Code Pix para apoiar o projeto">
+ <p class="eyebrow left">Ação Outubro Rosa</p>
+ <h2 id="pixT">Apoie esta ação</h2>
+ <p>A contribuição é voluntária, de qualquer valor, e não é condição para o atendimento.</p>
+ <img class="qr" src="pix-qr.svg" width="228" height="228" alt="QR Code Pix para apoiar a ação">
  <div class="dlg-actions">
   <button type="button" class="btn" id="copyPayload"><svg aria-hidden="true"><use href="#i-copy"/></svg><span>Copiar Pix copia e cola</span></button>
   <button type="button" class="btn ghost" id="copyEmail"><svg aria-hidden="true"><use href="#i-copy"/></svg><span>Copiar chave por e-mail</span></button>
@@ -298,8 +205,8 @@
 
 <dialog id="privacyDialog" class="dlg" aria-labelledby="privT">
  <button type="button" class="dlg-x" data-close aria-label="Fechar">×</button>
- <p class="eyebrow"><span>Transparência</span></p>
- <h2 id="privT">Suas informações.</h2>
+ <p class="eyebrow left">Transparência</p>
+ <h2 id="privT">Suas informações</h2>
  <p>A responsável pelo tratamento após o compartilhamento é a Dra. Joyce Radis de Souza de Oliveira, CRM-ES 21188, contato@drajoyceradis.com. O PDF é gerado exclusivamente no seu aparelho. Nenhuma resposta é transmitida ao GitHub nem guardada em servidor próprio.</p>
  <p>Para preencher o endereço, somente o CEP digitado é consultado no serviço ViaCEP, sujeito à política desse serviço. As fontes e a biblioteca de PDF são carregadas desta mesma página.</p>
  <p>Quando você enviar o PDF, ele passa a ser tratado pelo aplicativo escolhido, como o WhatsApp, conforme os termos dele. A finalidade é a avaliação individual e o contato profissional. Para corrigir ou eliminar dados compartilhados, quando cabível, escreva para o contato acima.</p>
