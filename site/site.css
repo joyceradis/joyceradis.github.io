@@ -141,16 +141,24 @@ em{font-style:italic;color:var(--wine)}
 .faq details p{padding:0 0 20px;color:var(--muted);animation:sobe .45s var(--ease) both}
 
 /* Fechamento e rodapé */
-.fecho{background:var(--wine);color:#fff}
-.fecho-in{display:grid;gap:24px;justify-items:start;padding-top:72px;padding-bottom:72px}
-.fecho h2{max-width:22ch;font:520 clamp(1.9rem,6vw,2.8rem)/1.12 var(--serif);letter-spacing:-.018em}
-.rodape{background:#2a1520;color:#e9d9df}
-.rodape-in{display:grid;gap:22px;padding-top:48px;padding-bottom:calc(44px + env(safe-area-inset-bottom))}
+.fecho{background:var(--bg)}
+.fecho-in{display:grid;gap:24px;justify-items:start;padding-top:80px;padding-bottom:150px}
+.fecho h2{max-width:22ch;font:520 clamp(1.9rem,6vw,2.8rem)/1.12 var(--serif);letter-spacing:-.018em;color:var(--ink)}
+.fecho .btn-claro{background:var(--wine);border-color:var(--wine);color:#fff}
+.fecho .btn-claro:hover{background:var(--wine-deep)}
+
+/* Rodapé com curvas, no mesmo modelo da ficha do Outubro Rosa */
+.rodape{position:relative;background:#2f1424;color:#f3e3eb}
+.rodape::before,.rodape::after{content:"";position:absolute;left:0;right:0;pointer-events:none;background-repeat:no-repeat;background-size:100% 100%}
+.rodape::before{top:-70px;height:72px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 72' preserveAspectRatio='none'%3E%3Cpath d='M0 72V34C220 70 440 6 720 30S1200 62 1440 20V72Z' fill='%23e2a9c2' fill-opacity='.55'/%3E%3C/svg%3E")}
+.rodape::after{top:-44px;height:46px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 46' preserveAspectRatio='none'%3E%3Cpath d='M0 46V26C200 2 420 2 660 20S1100 44 1440 12V46Z' fill='%232f1424'/%3E%3C/svg%3E")}
+.rodape-in{position:relative;z-index:1;display:grid;gap:22px;max-width:1120px;margin:0 auto;padding:34px 22px calc(36px + env(safe-area-inset-bottom))}
 .rodape-marca strong{display:block;font:500 1.15rem/1.3 var(--serif);color:#fff}
-.rodape-marca small{font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:#d8c09b}
-.rodape nav,.rodape-contato{display:flex;flex-wrap:wrap;gap:8px 24px}
-.rodape a{font-size:.92rem;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.3)}
-.nota{padding-top:16px;border-top:1px solid rgba(255,255,255,.14);font-size:.8rem;color:#c9b3bd}
+.rodape-marca small{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:#dcc6a3}
+.rodape-links{display:flex;flex-wrap:wrap;gap:10px 22px}
+.rodape a{font-size:.92rem;font-weight:600;color:#ffd9ea;text-underline-offset:3px;text-decoration-color:rgba(255,217,234,.45)}
+.nota{padding-top:18px;border-top:1px solid rgba(220,198,163,.22);font-size:.8rem;line-height:1.6;color:#dcc0cf}
+.nota a{font-size:inherit;font-weight:500}
 
 /* Celular: menu em tela cheia */
 @media (max-width:899px){
@@ -185,8 +193,6 @@ em{font-style:italic;color:var(--wine)}
   .sub-in{grid-template-columns:1.2fr .8fr;align-items:center;gap:64px}
   .sub-hero{padding:88px 0 96px}
   .fecho-in{grid-template-columns:1fr auto;align-items:center}
-  .rodape-in{grid-template-columns:1.2fr 1fr;align-items:start}
-  .nota{grid-column:1/-1}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
