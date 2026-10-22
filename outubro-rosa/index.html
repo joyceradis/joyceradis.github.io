@@ -18,9 +18,9 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preload" href="fonts/fraunces-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=15">
+<link rel="stylesheet" href="styles.css?v=16">
 <script defer src="vendor/jspdf.umd.min.js"></script>
-<script type="module" src="app.js?v=11"></script>
+<script type="module" src="app.js?v=12"></script>
 </head>
 <body>
 <svg class="sprite" aria-hidden="true" focusable="false">
@@ -30,6 +30,11 @@
  <symbol id="i-send" viewBox="0 0 24 24"><path d="M20.5 3.5L10 14m10.5-10.5L14 20.5l-3.7-6.8L3.5 10z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v11m-5-4.5l5 5 5-5M5 20h14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8.5" y="8.5" width="11" height="11" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M15.5 8.5V6.5a2 2 0 00-2-2h-7a2 2 0 00-2 2v7a2 2 0 002 2h2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+ <symbol id="i-check" viewBox="0 0 24 24"><path d="M5.5 12.5l4.2 4.2L18.5 7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+ <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M15 15l4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+ <symbol id="i-doc" viewBox="0 0 24 24"><path d="M7 3.5h7l4.5 4.5v12.5H7z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 3.5V8h4.5M9.8 12.5h5.5M9.8 16h5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+ <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0112 7.3a4.3 4.3 0 017.5 2.5C19.5 15.4 12 20 12 20z" fill="currentColor"/></symbol>
+ <symbol id="i-share" viewBox="0 0 24 24"><path d="M12 3.5v11M8 7.5l4-4 4 4M6.5 11H5.5v8.5h13V11h-1" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 </svg>
 
 <a class="skip" href="#ficha">Ir para a ficha</a>
@@ -151,38 +156,47 @@
   </div>
 
   <section id="result" class="result" hidden tabindex="-1" aria-labelledby="rTitle">
-   <span class="seal" aria-hidden="true"><svg viewBox="0 0 80 80"><circle class="seal-bg" cx="40" cy="40" r="30"/><circle class="seal-ring" cx="40" cy="40" r="30"/><path class="seal-check" d="M27 41l9.5 9.5L54 31"/></svg><i></i><i></i><i></i><i></i><i></i><i></i></span>
-   <p class="eyebrow">Ficha concluída</p>
-   <h2 id="rTitle">Parabéns, <span id="rName">você</span>.</h2>
-   <p class="r-lead">Sua ficha está pronta. Envie o PDF à Dra. Joyce: ela analisa e retorna com a solicitação dos seus exames, para você anexar ao plano de saúde ou fazer onde preferir.</p>
-   <div class="r-attn" id="rAttn" hidden><b>Você assinalou alteração nas mamas.</b> Sua análise será priorizada. Se houver dor forte ou secreção com sangue, procure atendimento presencial.</div>
-   <div class="r-actions">
-    <button type="button" class="btn big" id="share"><svg aria-hidden="true"><use href="#i-send"/></svg>Enviar minha ficha à Dra. Joyce</button>
-    <button type="button" class="btn ghost" id="download"><svg aria-hidden="true"><use href="#i-down"/></svg>Baixar PDF</button>
+   <div class="done-mark" id="doneMark" aria-hidden="true">
+    <span class="dm-ring"></span><span class="dm-ring r2"></span>
+    <svg viewBox="0 0 80 80"><circle class="dm-disc" cx="40" cy="40" r="34"/><path class="dm-check" d="M25 41.5l10 10L56 30"/></svg>
    </div>
-   <p class="hint center" id="shareHint">Escolha o WhatsApp e a conversa com a Dra. Joyce.</p>
-   <a class="link center-link" id="waText" href="#" target="_blank" rel="noopener noreferrer">Prefiro enviar como mensagem de texto</a>
-   <h3 class="next-h">O que acontece agora</h3>
-   <ol class="next-steps">
-    <li><b>Você envia o PDF</b><span>Pelo botão acima, direto na conversa com a Dra. Joyce no WhatsApp.</span></li>
-    <li><b>A Dra. Joyce analisa</b><span>Ela lê sua ficha e, se precisar, entra em contato com você.</span></li>
-    <li><b>Você recebe seus pedidos</b><span>Anexe ao seu plano de saúde ou faça onde preferir.</span></li>
+   <h2 id="rTitle"><span id="rHello">Ficha pronta!</span></h2>
+   <p class="r-lead">Agora é só enviar à Dra. Joyce.</p>
+   <div class="r-attn" id="rAttn" hidden><b>Você assinalou alteração nas mamas.</b> Sua análise será priorizada. Se houver dor forte ou secreção com sangue, procure atendimento presencial.</div>
+
+   <div class="file" id="fileCard">
+    <span class="file-ic" aria-hidden="true">PDF</span>
+    <span class="file-txt"><b id="fileName">ficha.pdf</b><small id="fileMeta">Pronto para enviar</small></span>
+    <button type="button" class="file-dl" id="download" aria-label="Baixar PDF"><svg aria-hidden="true"><use href="#i-down"/></svg></button>
+   </div>
+   <button type="button" class="btn big" id="share"><svg aria-hidden="true"><use href="#i-send"/></svg><span>Enviar à Dra. Joyce</span></button>
+   <a class="link center-link" id="waText" href="#" target="_blank" rel="noopener noreferrer">Prefiro enviar como texto</a>
+   <p class="hint center" id="shareHint" role="status" aria-live="polite"></p>
+
+   <ol class="track" id="track" data-stage="1" aria-label="Próximos passos">
+    <li><span class="t-dot"><svg aria-hidden="true"><use href="#i-send"/></svg><svg class="t-ok" aria-hidden="true"><use href="#i-check"/></svg></span><b>Você envia</b></li>
+    <li><span class="t-dot"><svg aria-hidden="true"><use href="#i-search"/></svg></span><b>Ela analisa</b></li>
+    <li><span class="t-dot"><svg aria-hidden="true"><use href="#i-doc"/></svg></span><b>Seus pedidos</b></li>
    </ol>
+   <p class="track-cap" id="trackCap">A Dra. Joyce analisa e devolve seus pedidos de exames, para usar no plano de saúde ou onde preferir.</p>
+
    <aside class="pix" aria-labelledby="pixH">
-    <p class="eyebrow">Ação Outubro Rosa</p>
+    <span class="pix-badge" aria-hidden="true"><svg><use href="#i-heart"/></svg></span>
     <h3 id="pixH">Deseja apoiar esta ação?</h3>
-    <p class="pix-lead">O atendimento é gratuito. Se quiser, contribua com qualquer valor para que a ação chegue a mais mulheres.</p>
-    <img class="pix-qr" src="pix-qr.svg" width="176" height="176" alt="QR Code Pix para apoiar a Ação Outubro Rosa">
-    <p class="pix-or">Aponte a câmera do banco para o QR Code ou use a chave Pix:</p>
-    <p class="pix-key"><span>Chave Pix (e-mail)</span><b>contato@drajoyceradis.com</b></p>
-    <div class="pix-actions">
-     <button type="button" class="btn" data-copy="pixEmail"><svg aria-hidden="true"><use href="#i-copy"/></svg><span>Copiar chave Pix</span></button>
-     <button type="button" class="btn ghost" data-copy="pixPayload"><svg aria-hidden="true"><use href="#i-copy"/></svg><span>Copiar Pix copia e cola</span></button>
-    </div>
-    <p class="pix-thanks">Gratidão pelo seu carinho.</p>
+    <p class="pix-lead">Opcional, de qualquer valor.</p>
+    <img class="pix-qr" src="pix-qr.svg" width="148" height="148" alt="QR Code Pix para apoiar a Ação Outubro Rosa">
+    <button type="button" class="pix-key" data-copy="pixEmail" aria-label="Copiar chave Pix contato@drajoyceradis.com">
+     <span class="pk-txt"><small>Chave Pix</small><b>contato@drajoyceradis.com</b></span>
+     <span class="pk-btn"><svg aria-hidden="true"><use href="#i-copy"/></svg><span>Copiar chave Pix</span></span>
+    </button>
+    <button type="button" class="link pix-cc" data-copy="pixPayload"><span>Copiar Pix copia e cola</span></button>
+    <p class="pix-thanks" id="pixThanks" hidden><svg aria-hidden="true"><use href="#i-heart"/></svg> Gratidão pelo seu carinho</p>
    </aside>
-   <p class="signoff">Cuide-se com carinho.</p>
-   <div class="r-more"><button type="button" class="link" id="shareFriend">Conhece alguém que precisa? Compartilhe esta página</button><button type="button" class="link" id="editAgain">Revisar minhas respostas</button></div>
+
+   <div class="r-more">
+    <button type="button" class="btn soft" id="shareFriend"><svg aria-hidden="true"><use href="#i-share"/></svg><span>Indicar a uma amiga</span></button>
+    <button type="button" class="link" id="editAgain">Revisar respostas</button>
+   </div>
   </section>
  </section>
 
