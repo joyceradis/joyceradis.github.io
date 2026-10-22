@@ -7,7 +7,7 @@ on:
     paths: ['outubro-rosa/**', 'vercel.json', 'tests/**', '.github/workflows/outubro-rosa.yml']
 jobs:
   teste:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
