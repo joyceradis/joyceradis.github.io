@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#512b39">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="Outubro Rosa. Solicite uma orientação individual sobre exames de saúde da mulher com a Dra. Joyce Radis.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'; frame-src 'none'">
+  <title>Outubro Rosa | Dra. Joyce Radis</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css?v=1">
+  <script src="app.js?v=1" defer></script>
+</head>
+<body>
+  <a class="skip" href="#formInicio">Ir para o formulário</a>
+  <header class="site-header">
+    <div class="brand" aria-label="Dra. Joyce Radis">
+      <span class="monogram" aria-hidden="true">JR</span>
+      <span class="brand-copy">
+        <span class="brand-title">Dra. Joyce Radis</span>
+        <span class="brand-sub">Medicina Integrativa</span>
+      </span>
+    </div>
+    <span class="header-side">CRM-ES 21188</span>
+  </header>
+  <main class="shell">
+    <section class="intro" aria-labelledby="introHeading">
+      <div class="eyebrow">Uma atenção especial à sua saúde</div>
+      <h1 class="hero" id="introHeading">Outubro<br><em>Rosa.</em></h1>
+      <p class="intro-lede">O cuidado começa quando você se escolhe.</p>
+      <p class="intro-copy">A prevenção faz parte de uma vida bem cuidada. Compartilhe seus dados para receber uma orientação individualizada sobre a necessidade de exames de saúde da mulher.</p>
+      <div class="ribbon-wrap" aria-hidden="true">
+        <svg class="ribbon" viewBox="0 0 180 260" role="presentation">
+          <defs><linearGradient id="ribbonGradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e4acbc"/><stop offset=".52" stop-color="#ba758d"/><stop offset="1" stop-color="#a96881"/></linearGradient></defs>
+          <path d="M63 20 C23 11 10 62 29 104 C49 145 98 174 153 232 L136 258 C74 192 24 154 8 108 C-18 32 27 -9 76 0 C122 9 150 58 136 100 C127 130 96 153 70 190 L48 254 L14 240 L43 172 C70 125 103 92 107 62 C111 33 94 22 63 20Z" fill="url(#ribbonGradient)" opacity=".83"/>
+          <path d="M61 19C97 32 117 61 104 91M33 123C58 147 88 174 115 205" fill="none" stroke="#f7dbe1" opacity=".55" stroke-width="2"/>
+        </svg>
+      </div>
+      <div class="intro-foot">Atenção individual. Cuidado consciente.</div>
+    </section>
+
+    <section class="form-card" id="formInicio" aria-label="Solicitação de orientação">
+      <div id="formHeading">
+        <p class="card-kicker">Atendimento individual · Outubro Rosa</p>
+        <h2 class="card-title">Seu momento de cuidar.</h2>
+        <p class="card-desc">Preencha as informações abaixo. O próximo passo será enviar sua solicitação diretamente para a Dra. Joyce pelo WhatsApp.</p>
+      </div>
+
+      <form id="rosaForm" autocomplete="on">
+        <div class="section-heading"><span class="section-num">01</span><span class="section-label">Informações de contato</span></div>
+        <div class="field">
+          <label for="nome">Nome completo</label>
+          <input id="nome" name="nome" type="text" autocomplete="name" placeholder="Como podemos chamar você?" maxlength="100" minlength="3" required>
+        </div>
+        <div class="row-fields">
+          <div class="field">
+            <label for="telefone">WhatsApp com DDD</label>
+            <input id="telefone" name="telefone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(27) 99999-9999" maxlength="20" required>
+          </div>
+          <div class="field">
+            <label for="idade">Idade</label>
+            <input id="idade" name="idade" type="number" inputmode="numeric" min="18" max="110" step="1" placeholder="Em anos" required>
+          </div>
+        </div>
+
+        <hr class="rule">
+        <div class="section-heading"><span class="section-num">02</span><span class="section-label">Sobre sua solicitação</span></div>
+        <fieldset class="field" id="examOptions">
+          <legend>Em quais exames ou cuidados você gostaria de receber orientação?</legend>
+          <div class="options">
+            <label class="option"><input type="checkbox" name="interesses" value="Mamografia"><span>Mamografia</span></label>
+            <label class="option"><input type="checkbox" name="interesses" value="Ultrassonografia mamária"><span>Ultrassonografia mamária</span></label>
+            <label class="option"><input type="checkbox" name="interesses" value="Exames ginecológicos de rotina"><span>Exames ginecológicos de rotina</span></label>
+            <label class="option"><input type="checkbox" id="sem-certeza" name="interesses" value="Preciso de orientação sobre quais exames são indicados"><span>Não sei quais exames são indicados para mim</span></label>
+          </div>
+          <p class="hint">Você pode selecionar mais de uma opção. A indicação e a periodicidade dos exames dependem da avaliação médica.</p>
+          <p class="error" id="examError" role="alert" aria-live="polite"></p>
+        </fieldset>
+
+        <div class="field">
+          <label for="ultimaMamografia">Quando realizou sua última mamografia? <span class="optional">Opcional</span></label>
+          <select id="ultimaMamografia" name="ultimaMamografia">
+            <option value="Não informado" selected>Prefiro não informar agora</option>
+            <option value="Nunca realizei">Nunca realizei</option>
+            <option value="Há menos de 1 ano">Há menos de 1 ano</option>
+            <option value="Há 1 a 2 anos">Há 1 a 2 anos</option>
+            <option value="Há mais de 2 anos">Há mais de 2 anos</option>
+            <option value="Não me recordo">Não me recordo</option>
+          </select>
+        </div>
+
+        <hr class="rule">
+        <div class="section-heading"><span class="section-num">03</span><span class="section-label">Modalidade de atendimento</span></div>
+        <div class="field">
+          <label for="modalidade">Selecione a modalidade</label>
+          <select id="modalidade" name="modalidade" required>
+            <option value="Particular" selected>Particular</option>
+          </select>
+          <div class="private-note">O envio deste cadastro e o contato inicial não têm custo. A avaliação médica ou consulta, quando necessária, é particular e será esclarecida previamente. Não há atendimento por convênio nesta modalidade.</div>
+        </div>
+        <div class="consent">
+          <input id="consentimento" type="checkbox" name="consentimento" required>
+          <label for="consentimento">Autorizo compartilhar os dados informados com a Dra. Joyce pelo WhatsApp para receber retorno sobre esta solicitação. Li a <a href="#privacidade" id="openPrivacy">política de privacidade</a>.</label>
+        </div>
+        <button type="submit" class="primary-btn">Continuar para o WhatsApp <span class="btn-arrow" aria-hidden="true">↗</span></button>
+        <p class="under-submit">Seu cadastro só será transmitido quando você confirmar o envio da mensagem no WhatsApp.</p>
+        <p class="under-submit">Se houver sintomas, alterações nas mamas ou outra preocupação atual, não aguarde o retorno deste formulário: procure avaliação médica diretamente.</p>
+      </form>
+
+      <div id="formResult" class="thankyou" aria-live="polite" aria-hidden="true">
+        <div class="thankyou-ornament" aria-hidden="true">JR</div>
+        <p class="card-kicker">Quase concluído</p>
+        <h2 tabindex="-1">Seu cuidado começa aqui.</h2>
+        <p>Seu cadastro está preparado. Toque abaixo e <strong>envie a mensagem no WhatsApp</strong> para concluir sua solicitação.</p>
+        <p>Assim que eu receber sua mensagem, entrarei em contato para orientar os próximos passos. Se houver indicação após avaliação médica, poderei encaminhar os pedidos de exames apropriados.</p>
+        <a class="primary-btn" id="sendWhatsapp" href="#" target="_blank" rel="noopener noreferrer">Enviar solicitação no WhatsApp <span class="btn-arrow" aria-hidden="true">↗</span></a>
+        <span class="steps-note">Ao abrir o WhatsApp, confira a mensagem e toque em enviar. Somente então ela será recebida.</span>
+        <button type="button" class="text-btn" id="backToForm">Voltar e editar meus dados</button>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div><strong>Dra. Joyce Radis de Souza de Oliveira</strong><span>Médica · CRM-ES 21188 · Abordagem integrativa do cuidado</span></div>
+    <div class="footer-right"><a href="mailto:contato@drajoyceradis.com">contato@drajoyceradis.com</a><span>Este formulário não substitui uma consulta médica.</span></div>
+  </footer>
+  <dialog id="privacyDialog" class="privacy-dialog" aria-labelledby="privacyTitle">
+    <button type="button" class="close-dialog" id="closePrivacy" aria-label="Fechar">×</button>
+    <h2 id="privacyTitle">Sua privacidade.</h2>
+    <p><strong>Responsável:</strong> Dra. Joyce Radis de Souza de Oliveira, CRM-ES 21188. Contato: contato@drajoyceradis.com.</p>
+    <p><strong>Finalidade:</strong> permitir o contato individual a respeito de orientação sobre exames e, se necessário, avaliação médica. Coletamos apenas os dados que você preenche e decide enviar.</p>
+    <p><strong>Como funciona:</strong> este site não grava suas respostas em banco de dados, cookies ou ferramentas de análise. O texto é preparado no seu próprio navegador e só é compartilhado quando você confirma o envio pelo WhatsApp. O tratamento posterior das mensagens segue as condições de privacidade da conversa e as obrigações de confidencialidade do atendimento médico.</p>
+    <p><strong>Seus direitos:</strong> você pode solicitar informações, correção ou exclusão dos dados de contato por meio do e-mail acima, respeitados os prazos legais de guarda quando aplicáveis. Não há consentimento para comunicações publicitárias.</p>
+    <p>Não inclua relatos clínicos detalhados no formulário. Para sintomas ou alterações atuais, procure avaliação médica sem aguardar a campanha.</p>
+  </dialog>
+</body>
+</html>
