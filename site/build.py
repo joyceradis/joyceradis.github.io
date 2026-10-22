@@ -66,6 +66,10 @@ def page(path, title, desc, body, extra_head=''):
     out = ROOT / path.strip('/') / 'index.html' if path != '/' else ROOT / 'index.html'
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(html, encoding='utf-8')
+    if path == '/':
+        # /inicio/ precisa existir como arquivo: o GitHub Pages não aplica o vercel.json
+        (ROOT / 'inicio').mkdir(exist_ok=True)
+        (ROOT / 'inicio' / 'index.html').write_text(html, encoding='utf-8')
 
 
 def fecho(titulo='Vamos cuidar da sua saúde por inteiro?'):
@@ -105,7 +109,7 @@ page('/', 'Dra. Joyce Radis · Médica · Medicina integral',
  <p class="kicker reveal">Como funciona</p>
  <h2 class="reveal">Do primeiro contato ao retorno</h2>
  <ol class="passos">
-  <li class="reveal"><b>01</b><h3>Agende</h3><p>Escolha o melhor dia e horário pelo WhatsApp.</p></li>
+  <li class="reveal"><b>01</b><h3>Agende</h3><p>Escolha o melhor dia e horário na agenda online.</p></li>
   <li class="reveal"><b>02</b><h3>Consulta</h3><p>No consultório ou em casa, com tempo para tudo.</p></li>
   <li class="reveal"><b>03</b><h3>Plano claro</h3><p>Você sai sabendo o que fazer, quais exames e quando voltar.</p></li>
   <li class="reveal"><b>04</b><h3>Acompanhamento</h3><p>Retorno e contato próximo para ajustar o cuidado.</p></li>
@@ -217,7 +221,7 @@ faq = [
 ]
 faqs = ''.join(f'<details class="reveal"><summary>{q}</summary><p>{a}</p></details>' for q, a in faq)
 page('/agendar/', 'Agendar consulta · Dra. Joyce Radis',
-     'Agende sua consulta com a Dra. Joyce Radis pelo WhatsApp, no consultório ou em casa.',
+     'Agende sua consulta com a Dra. Joyce Radis: agenda online para o consultório e WhatsApp para atendimento em casa.',
      f'''<section class="sub-hero simples"><div class="wrap">
  <p class="kicker anim" data-d="1">Agendar</p><h1 class="anim" data-d="2">Vamos <em>marcar</em> sua consulta.</h1>
  <p class="lead anim" data-d="3">Escolha como prefere ser atendida e fale direto comigo.</p>

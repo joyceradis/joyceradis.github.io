@@ -23,11 +23,5 @@
       "destination": "/",
       "permanent": false
     }
-  ],
-  "rewrites": [
-    {
-      "source": "/inicio/",
-      "destination": "/index.html"
-    }
   ]
 }
