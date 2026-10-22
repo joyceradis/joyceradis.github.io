@@ -32,6 +32,7 @@
     phoneField.setCustomValidity('');
     phoneField.removeAttribute('aria-invalid');
   });
+  nameField.addEventListener('input', () => nameField.setCustomValidity(''));
   ageField.addEventListener('input', () => ageField.setCustomValidity(''));
   options.forEach(box => box.addEventListener('change', () => {
     if (box === noExam && box.checked) options.filter(el => el !== noExam).forEach(el => el.checked = false);
