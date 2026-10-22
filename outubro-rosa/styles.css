@@ -322,10 +322,9 @@ body.is-done .support{display:none}
 
 /* ---------- Acabamento: linguagem de clínica premium ---------- */
 html{background:radial-gradient(120% 70% at 50% -10%,#fff 0,rgba(255,255,255,0) 62%) no-repeat,var(--bg)}
-.top{background:rgba(47,20,36,.9);border-bottom:1px solid rgba(220,198,163,.28)}
-.brand{display:flex;align-items:center;gap:12px}
-.brand-t{display:grid;justify-items:start;line-height:1.15}
-.brand small{color:var(--gold-2)}
+.top{background:rgba(253,243,247,.86);-webkit-backdrop-filter:saturate(180%) blur(24px);backdrop-filter:saturate(180%) blur(24px);border-bottom:1px solid rgba(155,52,99,.14);box-shadow:0 8px 24px -20px rgba(122,36,78,.45)}
+.brand{color:#7c2650}
+.brand small{color:var(--gold-ink)}
 .mono{display:grid;place-items:center;flex:none;width:40px;height:40px;border:1px solid rgba(220,198,163,.7);border-radius:50%;font:italic 400 1rem/1 var(--serif);letter-spacing:.02em;color:var(--gold-2)}
 
 .kicker{color:var(--gold-ink);letter-spacing:.24em}
