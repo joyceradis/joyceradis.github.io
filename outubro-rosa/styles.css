@@ -57,18 +57,13 @@ svg{flex:none}
 .stage{max-width:640px;margin:0 auto;padding:0 20px 40px;display:grid;grid-template-columns:minmax(0,1fr);overflow-x:clip}
 
 /* ---------- Hero ---------- */
-.hero{padding:30px 0 22px;text-align:center;min-width:0}
-.hero-flor{width:100px;margin:0 auto 12px}
-.eyebrow{display:flex;justify-content:center;gap:8px 14px;font-size:.74rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--rose)}
-h1{margin:12px auto 14px;max-width:17ch;font-family:var(--serif);font-weight:380;font-size:clamp(2.05rem,8.6vw,3.1rem);line-height:1.08;letter-spacing:-.022em;color:var(--ink);font-variation-settings:"SOFT" 0;text-wrap:balance}
-.lead{max-width:30rem;margin:0 auto;font-size:1.02rem;line-height:1.65;color:var(--text)}
-.how{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-width:30rem;margin:24px auto 0;text-align:left}
-.how li{padding-top:10px;border-top:2px solid var(--rose);font-size:.86rem;line-height:1.35;color:var(--ink);font-weight:500}
-.how b{display:block;margin-bottom:2px;font-family:var(--serif);font-weight:400;font-size:1.15rem;color:var(--rose)}
-.hero-note{margin-top:16px;font-size:.82rem;color:var(--muted)}
+.hero{padding:28px 0 18px;text-align:center;min-width:0}
+h1{margin:0;font-family:var(--serif);font-weight:300;font-size:clamp(2.7rem,12.5vw,4.6rem);line-height:.98;letter-spacing:.015em;text-transform:uppercase;color:#c26a98;text-shadow:0 1px 0 #fff,0 8px 22px rgba(213,139,176,.28);font-variation-settings:"SOFT" 0}
+.hero-flor{width:132px;margin:14px auto 6px}
+.hero-q{font-family:var(--serif);font-style:italic;font-weight:320;font-size:clamp(1.5rem,6vw,2rem);line-height:1.2;letter-spacing:-.01em;color:var(--ink);font-variation-settings:"SOFT" 0}
+.lead{max-width:24rem;margin:10px auto 0;font-size:1rem;line-height:1.55;color:var(--text)}
 
-.season{font-family:var(--serif);font-weight:300;font-size:clamp(1.5rem,6.4vw,2.1rem);letter-spacing:.32em;text-transform:uppercase;color:var(--rose);padding-left:.32em}
-.hero-flor{margin-top:14px}
+.eyebrow{display:flex;justify-content:center;gap:8px 14px;font-size:.74rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--rose)}
 
 /* ---------- Cartão ---------- */
 .card{background:rgba(255,255,255,.94);border:1px solid var(--line);border-radius:24px;padding:28px 20px 22px;box-shadow:0 30px 60px -40px rgba(178,63,119,.35)}
@@ -199,8 +194,8 @@ input:focus,textarea:focus{outline:none;border-color:var(--rose);box-shadow:0 0 
 .result .hint{margin:14px auto 0;max-width:26rem}
 .center-link{display:inline-block;margin-top:12px}
 .next-steps{text-align:left;max-width:32rem;margin:34px auto 0;counter-reset:s;border-top:1px solid var(--line)}
-.next-steps li{position:relative;padding:16px 0 16px 44px;display:grid;gap:2px;counter-increment:s;border-bottom:1px solid var(--line)}
-.next-steps li::before{content:counter(s,decimal-leading-zero);position:absolute;left:0;top:16px;font-family:var(--serif);font-size:1rem;color:var(--rose);font-variation-settings:"SOFT" 0}
+.next-steps li{position:relative;padding:14px 0 14px 44px;display:grid;gap:2px;counter-increment:s;border-bottom:1px solid var(--line)}
+.next-steps li::before{content:counter(s,decimal-leading-zero);position:absolute;left:0;top:14px;font-family:var(--serif);font-size:1rem;color:var(--rose);font-variation-settings:"SOFT" 0}
 .next-steps b{font-weight:600;color:var(--ink)}
 .next-steps span{font-size:.9rem;color:var(--muted)}
 .thanks{text-align:left;margin:34px auto 0;max-width:34rem;padding:18px 0 0;border-top:1px solid var(--line-2)}
