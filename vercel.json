@@ -1,6 +1,27 @@
 {
   "trailingSlash": true,
   "redirects": [
-    { "source": "/", "has": [{ "type": "host", "value": "drajoyceradis.vercel.app" }], "destination": "/outubro-rosa/", "permanent": false }
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "drajoyceradis.vercel.app"
+        }
+      ],
+      "destination": "/outubro-rosa/",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "drajoyceradis.com"
+        }
+      ],
+      "destination": "/outubro-rosa/",
+      "permanent": false
+    }
   ]
 }
