@@ -18,9 +18,9 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preload" href="fonts/fraunces-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=13">
+<link rel="stylesheet" href="styles.css?v=15">
 <script defer src="vendor/jspdf.umd.min.js"></script>
-<script type="module" src="app.js?v=9"></script>
+<script type="module" src="app.js?v=11"></script>
 </head>
 <body>
 <svg class="sprite" aria-hidden="true" focusable="false">
@@ -151,10 +151,10 @@
   </div>
 
   <section id="result" class="result" hidden tabindex="-1" aria-labelledby="rTitle">
-   <span class="seal" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5.5 12.5l4.2 4.2L18.5 7.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+   <span class="seal" aria-hidden="true"><svg viewBox="0 0 80 80"><circle class="seal-bg" cx="40" cy="40" r="30"/><circle class="seal-ring" cx="40" cy="40" r="30"/><path class="seal-check" d="M27 41l9.5 9.5L54 31"/></svg><i></i><i></i><i></i><i></i><i></i><i></i></span>
    <p class="eyebrow">Ficha concluída</p>
    <h2 id="rTitle">Parabéns, <span id="rName">você</span>.</h2>
-   <p class="r-lead">Sua ficha está pronta. Agora é só enviá-la à Dra. Joyce.</p>
+   <p class="r-lead">Sua ficha está pronta. Envie o PDF à Dra. Joyce: ela analisa e retorna com a solicitação dos seus exames, para você anexar ao plano de saúde ou fazer onde preferir.</p>
    <div class="r-attn" id="rAttn" hidden><b>Você assinalou alteração nas mamas.</b> Sua análise será priorizada. Se houver dor forte ou secreção com sangue, procure atendimento presencial.</div>
    <div class="r-actions">
     <button type="button" class="btn big" id="share"><svg aria-hidden="true"><use href="#i-send"/></svg>Enviar minha ficha à Dra. Joyce</button>
@@ -162,7 +162,25 @@
    </div>
    <p class="hint center" id="shareHint">Escolha o WhatsApp e a conversa com a Dra. Joyce.</p>
    <a class="link center-link" id="waText" href="#" target="_blank" rel="noopener noreferrer">Prefiro enviar como mensagem de texto</a>
-   <ol class="next-steps"><li><b>Você envia a ficha</b></li><li><b>A Dra. Joyce analisa</b></li><li><b>Seus pedidos ficam prontos</b></li></ol>
+   <h3 class="next-h">O que acontece agora</h3>
+   <ol class="next-steps">
+    <li><b>Você envia o PDF</b><span>Pelo botão acima, direto na conversa com a Dra. Joyce no WhatsApp.</span></li>
+    <li><b>A Dra. Joyce analisa</b><span>Ela lê sua ficha e, se precisar, entra em contato com você.</span></li>
+    <li><b>Você recebe seus pedidos</b><span>Anexe ao seu plano de saúde ou faça onde preferir.</span></li>
+   </ol>
+   <aside class="pix" aria-labelledby="pixH">
+    <p class="eyebrow">Ação Outubro Rosa</p>
+    <h3 id="pixH">Deseja apoiar esta ação?</h3>
+    <p class="pix-lead">O atendimento é gratuito. Se quiser, contribua com qualquer valor para que a ação chegue a mais mulheres.</p>
+    <img class="pix-qr" src="pix-qr.svg" width="176" height="176" alt="QR Code Pix para apoiar a Ação Outubro Rosa">
+    <p class="pix-or">Aponte a câmera do banco para o QR Code ou use a chave Pix:</p>
+    <p class="pix-key"><span>Chave Pix (e-mail)</span><b>contato@drajoyceradis.com</b></p>
+    <div class="pix-actions">
+     <button type="button" class="btn" data-copy="pixEmail"><svg aria-hidden="true"><use href="#i-copy"/></svg><span>Copiar chave Pix</span></button>
+     <button type="button" class="btn ghost" data-copy="pixPayload"><svg aria-hidden="true"><use href="#i-copy"/></svg><span>Copiar Pix copia e cola</span></button>
+    </div>
+    <p class="pix-thanks">Gratidão pelo seu carinho.</p>
+   </aside>
    <p class="signoff">Cuide-se com carinho.</p>
    <div class="r-more"><button type="button" class="link" id="shareFriend">Conhece alguém que precisa? Compartilhe esta página</button><button type="button" class="link" id="editAgain">Revisar minhas respostas</button></div>
   </section>
@@ -197,10 +215,10 @@
  <p>A contribuição é voluntária, de qualquer valor, e não é condição para o atendimento.</p>
  <img class="qr" src="pix-qr.svg" width="228" height="228" alt="QR Code Pix para apoiar a ação">
  <div class="dlg-actions">
-  <button type="button" class="btn" id="copyPayload"><svg aria-hidden="true"><use href="#i-copy"/></svg><span>Copiar Pix copia e cola</span></button>
-  <button type="button" class="btn ghost" id="copyEmail"><svg aria-hidden="true"><use href="#i-copy"/></svg><span>Copiar chave por e-mail</span></button>
+  <button type="button" class="btn" data-copy="pixPayload"><svg aria-hidden="true"><use href="#i-copy"/></svg><span>Copiar Pix copia e cola</span></button>
+  <button type="button" class="btn ghost" data-copy="pixEmail"><svg aria-hidden="true"><use href="#i-copy"/></svg><span>Copiar chave Pix (e-mail)</span></button>
  </div>
- <p class="hint center" id="pixFb" role="status" aria-live="polite"></p>
+ <p class="sr" id="copyFb" role="status" aria-live="polite"></p>
 </dialog>
 
 <dialog id="privacyDialog" class="dlg" aria-labelledby="privT">

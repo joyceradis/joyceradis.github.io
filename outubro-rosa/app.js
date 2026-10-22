@@ -195,19 +195,23 @@ document.querySelectorAll('dialog').forEach(dlg => dlg.addEventListener('click',
   if (e.target === dlg || e.target.hasAttribute('data-close')) dlg.close();
 }));
 
-async function copyText(text, btn, label) {
-  const span = btn.querySelector('span'), fb = $('pixFb');
+/* Botões [data-copy="pixEmail|pixPayload"], na tela final e no diálogo */
+async function copyPix(btn) {
+  const span = btn.querySelector('span');
+  btn.dataset.label ??= span.textContent;
+  const text = CONFIG[btn.dataset.copy];
   try { await navigator.clipboard.writeText(text); }
   catch {
     const t = Object.assign(document.createElement('textarea'), { value: text });
     t.setAttribute('readonly', ''); document.body.append(t); t.select();
     const ok = document.execCommand('copy'); t.remove();
-    if (!ok) { fb.textContent = 'Não foi possível copiar. Use o QR Code acima.'; return; }
+    if (!ok) { span.textContent = 'Use o QR Code'; setTimeout(() => { span.textContent = btn.dataset.label; }, 2400); return; }
   }
-  span.textContent = 'Copiado, obrigada!'; fb.textContent = 'Copiado para a área de transferência.';
-  setTimeout(() => { span.textContent = label; fb.textContent = ''; }, 2400);
+  span.textContent = 'Copiado, obrigada!';
+  $('copyFb').textContent = 'Copiado para a área de transferência.';
+  btn.classList.add('done');
+  setTimeout(() => { span.textContent = btn.dataset.label; btn.classList.remove('done'); $('copyFb').textContent = ''; }, 2400);
 }
-$('copyPayload').addEventListener('click', e => copyText(CONFIG.pixPayload, e.currentTarget, 'Copiar Pix copia e cola'));
-$('copyEmail').addEventListener('click', e => copyText(CONFIG.pixEmail, e.currentTarget, 'Copiar chave por e-mail'));
+document.querySelectorAll('[data-copy]').forEach(btn => btn.addEventListener('click', () => copyPix(btn)));
 
 goTo(1, false);
