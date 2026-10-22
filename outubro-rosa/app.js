@@ -128,21 +128,21 @@
 
   /* ---------- Panorama (referência geral por idade) ---------- */
   function mammoView(age, last) {
-    if (age < 40) return ['info', 'Para conversar', 'Antes dos 40 anos a mamografia não costuma ser de rotina. Histórico na família ou sintomas podem mudar isso, e a Dra. avalia.'];
-    const base = 'Sociedades médicas brasileiras (SBM, CBR e Febrasgo) recomendam uma mamografia por ano a partir dos 40.';
-    if (last === 'Nunca fiz') return ['late', 'Vale atualizar', `Você ainda não fez nenhuma. ${base}`];
-    if (last === 'Há mais de 2 anos') return ['late', 'Vale atualizar', `Já passou do intervalo recomendado. ${base}`];
+    if (age < 40) return ['info', 'Para conversar', 'Antes dos 40 não costuma ser de rotina. Histórico ou sintomas podem mudar isso.'];
+    const base = 'O recomendado é uma por ano a partir dos 40.';
+    if (last === 'Nunca fiz') return ['late', 'Vale atualizar', `Você ainda não fez. ${base}`];
+    if (last === 'Há mais de 2 anos') return ['late', 'Vale atualizar', `Passou do intervalo. ${base}`];
     if (last === 'Há 1 a 2 anos') return ['soon', 'Quase na hora', `Está chegando a hora de repetir. ${base}`];
-    if (last === 'Há menos de 1 ano') return ['ok', 'Em dia', 'Dentro do intervalo anual recomendado.'];
-    return ['soon', 'Quase na hora', `Sem a data, vale conferir o intervalo com a Dra. ${base}`];
+    if (last === 'Há menos de 1 ano') return ['ok', 'Em dia', 'Dentro do intervalo anual.'];
+    return ['soon', 'Quase na hora', `Sem a data, vale conferir com a Dra. ${base}`];
   }
   function papView(age, last) {
-    if (age < 25) return ['info', 'Para conversar', 'O preventivo costuma começar aos 25 anos. A Dra. confirma o que faz sentido no seu caso.'];
-    if (age > 64) return ['info', 'Para conversar', 'Depois dos 64 anos, a Dra. avalia se ainda é necessário, conforme os seus exames anteriores.'];
-    const base = 'A orientação do Ministério da Saúde é repetir a cada 3 anos, depois de dois exames normais seguidos.';
+    if (age < 25) return ['info', 'Para conversar', 'Costuma começar aos 25 anos. A Dra. confirma o seu caso.'];
+    if (age > 64) return ['info', 'Para conversar', 'Depois dos 64, a Dra. avalia se ainda é necessário.'];
+    const base = 'O intervalo padrão é de 3 anos, após dois exames normais.';
     if (last === 'Nunca fiz') return ['late', 'Vale atualizar', `Você ainda não fez. ${base}`];
-    if (last === 'Há mais de 3 anos') return ['late', 'Vale atualizar', `Passou do intervalo de 3 anos. ${base}`];
-    if (last === 'Há 1 a 3 anos') return ['ok', 'Em dia', 'Dentro do intervalo, se os resultados anteriores foram normais.'];
+    if (last === 'Há mais de 3 anos') return ['late', 'Vale atualizar', `Passou de 3 anos. ${base}`];
+    if (last === 'Há 1 a 3 anos') return ['ok', 'Em dia', 'Dentro do intervalo, se os anteriores foram normais.'];
     if (last === 'Há menos de 1 ano') return ['ok', 'Em dia', 'Feito recentemente.'];
     return ['soon', 'Quase na hora', `Sem a data, vale conferir com a Dra. ${base}`];
   }
@@ -163,7 +163,7 @@
       row.append(mk('span', `pill ${tone}`, label), mk('b', '', title), mk('p', '', text));
       box.append(row);
     });
-    box.append(mk('p', 'pano-foot', 'Referência geral por faixa etária. O que é indicado para você depende da avaliação médica.'));
+    box.append(mk('p', 'pano-foot', 'Referência geral por idade. A indicação depende da avaliação médica.'));
     box.hidden = false;
   }
   form.querySelectorAll('input[name="mamografia"],input[name="preventivo"]').forEach(el => el.addEventListener('change', renderPanorama));
@@ -234,7 +234,7 @@
     const ok = validate(current);
     if (!ok && !warned[current]) {
       warned[current] = true;
-      softNote.textContent = 'Há campos em branco ou para revisar. Você pode seguir assim, mas a Dra. Joyce pode precisar pedir essas informações depois.';
+      softNote.textContent = 'Alguns campos estão em branco. Você pode continuar, mas a Dra. Joyce pode pedir depois.';
       softNote.hidden = false;
       $('nextLbl').textContent = 'Continuar mesmo assim';
       softNote.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
