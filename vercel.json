@@ -11,7 +11,9 @@
       ],
       "destination": "/outubro-rosa/",
       "permanent": false
-    },
+    }
+  ],
+  "rewrites": [
     {
       "source": "/",
       "has": [
@@ -20,8 +22,7 @@
           "value": "drajoyceradis.com"
         }
       ],
-      "destination": "/outubro-rosa/",
-      "permanent": false
+      "destination": "/inicio/index.html"
     }
   ]
 }

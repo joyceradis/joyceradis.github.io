@@ -38,6 +38,15 @@ let size = 0; for await (const chunk of pdf) size += chunk.length;
 if (size < 2000) fail(`PDF pequeno demais (${size} bytes)`);
 if (!(await page.isVisible('.pix-qr'))) fail('QR Code do Pix não aparece');
 
+// Página inicial do site
+const home = new URL('../inicio/', BASE).href;
+await page.goto(home);
+await page.waitForLoadState('networkidle');
+if (!(await page.isVisible('h1'))) fail('título da página inicial não aparece');
+if (!(await page.isVisible('.retrato img'))) fail('foto da página inicial não aparece');
+if (!(await page.getAttribute('[data-agendar]', 'href') || '').startsWith('https://')) fail('botão Agendar sem link');
+if (await page.evaluate(() => document.documentElement.scrollWidth) > 390) fail('rolagem horizontal na página inicial');
+
 if (errors.length) fail('erros na página:\n  ' + errors.join('\n  '));
 await browser.close();
 if (!process.exitCode) console.log('OK: página, fluxo, PDF e Pix funcionando');
