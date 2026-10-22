@@ -44,10 +44,10 @@ svg{flex:none}
 
 /* ---------- Topo ---------- */
 
-.top{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.97);border-top:3px solid var(--rose);border-bottom:1px solid var(--line);box-shadow:0 10px 30px -26px rgba(61,34,49,.45)}
-.top-in{max-width:640px;margin:0 auto;padding:14px 20px 13px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.top{position:sticky;top:0;z-index:30;background:rgba(255,246,250,.58);-webkit-backdrop-filter:saturate(180%) blur(22px);backdrop-filter:saturate(180%) blur(22px);border-bottom:1px solid rgba(178,63,119,.16);box-shadow:inset 0 1px 0 rgba(255,255,255,.75)}
+.top-in{max-width:640px;margin:0 auto;padding:12px 20px 11px;display:flex;align-items:center;justify-content:center;gap:14px}
 .brand{text-decoration:none;color:inherit;min-width:0}
-.brand-t{display:grid;line-height:1.15}
+.brand-t{display:grid;line-height:1.15;text-align:center}
 .brand-t strong{font-family:var(--serif);font-weight:460;font-size:1.45rem;white-space:nowrap;letter-spacing:-.015em;color:var(--ink);font-variation-settings:"SOFT" 0}
 .brand-t small{margin-top:4px;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--rose);font-weight:600}
 .top-link{font-size:.84rem;font-weight:600;color:#fff;text-decoration:none;padding:10px 18px;border-radius:999px;background:var(--rose);white-space:nowrap;transition:background .2s}
@@ -66,7 +66,7 @@ h1{margin:0;font-family:var(--serif);font-weight:300;font-size:clamp(2.7rem,12.5
 .eyebrow{display:flex;justify-content:center;gap:8px 14px;font-size:.74rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--rose)}
 
 /* ---------- Cartão ---------- */
-.card{background:rgba(255,255,255,.94);border:1px solid var(--line);border-radius:24px;padding:28px 20px 22px;box-shadow:0 30px 60px -40px rgba(178,63,119,.35)}
+.card{background:rgba(255,255,255,.72);-webkit-backdrop-filter:saturate(170%) blur(18px);backdrop-filter:saturate(170%) blur(18px);border:1px solid rgba(255,255,255,.85);border-radius:24px;padding:28px 20px 22px;box-shadow:0 30px 60px -40px rgba(178,63,119,.35)}
 .prog{margin:0 0 26px}
 .prog-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:.78rem;letter-spacing:.04em;color:var(--muted);margin-bottom:10px}
 .prog-count b{color:var(--ink);font-weight:700}
@@ -216,6 +216,11 @@ input:focus,textarea:focus{outline:none;border-color:var(--rose);box-shadow:0 0 
 .foot-links{display:flex;flex-wrap:wrap;gap:10px 22px}
 .foot-links a,.foot-links .link{color:#ffd9ea;font-size:.9rem;font-weight:600;text-decoration-color:rgba(255,217,234,.45)}
 .foot-note{font-size:.8rem;color:#dcc0cf;max-width:44rem;line-height:1.6;padding-top:18px;border-top:1px solid rgba(255,255,255,.16)}
+
+.wa-fab{position:fixed;z-index:40;right:16px;bottom:calc(18px + env(safe-area-inset-bottom));display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:#25d366;color:#fff;box-shadow:0 10px 24px -8px rgba(18,140,70,.65),0 2px 6px rgba(0,0,0,.12);transition:transform .2s var(--ease),box-shadow .2s}
+.wa-fab svg{width:32px;height:32px}
+.wa-fab:hover{transform:translateY(-2px) scale(1.04)}
+.wa-fab:active{transform:scale(.96)}
 
 /* ---------- Diálogos ---------- */
 .dlg{width:min(92vw,30rem);max-height:88vh;overflow:auto;border:0;border-radius:14px;padding:30px 24px 26px;background:var(--paper);color:var(--text);box-shadow:0 40px 90px -30px rgba(42,29,36,.6)}
