@@ -14,7 +14,8 @@
   const wizard = $('wizard');
   const steps = Array.from(document.querySelectorAll('.step'));
   const TOTAL = steps.length;
-  const NAMES = ['Identificação', 'Exames', 'Histórico de saúde', 'Contexto clínico', 'Dados do pedido', 'Atendimento'];
+  const NAMES = ['Seus dados', 'Exames', 'Sua saúde', 'Dados do pedido', 'Atendimento'];
+  const warned = {};
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
   let current = 1;
   let cepAbort = null;
@@ -187,15 +188,13 @@
       else if (dob.age < 18) need('nascimento', 'Esta ficha é para maiores de 18 anos.');
       else if (dob.age > 115) need('nascimento', 'Confira o ano de nascimento.');
       if (![10, 11].includes(digits(val('telefone')).length)) need('telefone', 'Informe o número com DDD.');
-      if (val('email') && !$('email').checkValidity()) need('email', 'Confira o e-mail digitado.');
     }
     if (n === 2) {
       if (!picked('exames').length) need('exames', 'Marque ao menos uma opção.');
       group('mamografia'); group('preventivo');
     }
-    if (n === 3) { group('sintomas'); group('pessoal'); group('familia'); group('genetica'); }
-    if (n === 4) group('gestacao');
-    if (n === 5) {
+    if (n === 3) { group('sintomas'); group('pessoal'); group('familia'); group('genetica'); group('gestacao'); }
+    if (n === 4) {
       if (!validCpf(val('cpf'))) need('cpf', 'Confira o CPF digitado.');
       if (digits(val('cep')).length !== 8) need('cep', 'O CEP tem 8 números.');
       else {
@@ -207,15 +206,7 @@
         if (!/^[A-Za-z]{2}$/.test(val('uf'))) need('uf', 'Use a sigla, como ES.');
       }
     }
-    if (n === 6) {
-      if (!$('aceite').checked) need('aceite', 'Confirme para gerar a sua ficha.');
-      else if (!window.jspdf || !window.jspdf.jsPDF) { alert('O gerador de PDF não carregou. Atualize a página e tente de novo.'); ok = false; }
-    }
-    if (!ok && setError.first) {
-      const { wrap, target } = setError.first;
-      wrap.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
-      if (target && target.type !== 'radio' && target.type !== 'checkbox') target.focus({ preventScroll: true });
-    }
+    if (n === 5 && (!window.jspdf || !window.jspdf.jsPDF)) { alert('O gerador de PDF não carregou. Atualize a página e tente de novo.'); return true; }
     return ok;
   }
 
@@ -227,6 +218,8 @@
     $('pCur').textContent = current;
     $('pName').textContent = NAMES[current - 1];
     $('back').hidden = current === 1;
+    $('pTot').textContent = TOTAL;
+    softNote.hidden = true;
     $('nextLbl').textContent = current === TOTAL ? 'Concluir ficha' : 'Continuar';
     if (current === 2) renderPanorama();
     if (scroll) {
@@ -235,8 +228,19 @@
       const h = steps[current - 1].querySelector('h2'); if (h) h.focus({ preventScroll: true });
     }
   }
+  const softNote = $('softNote');
+  const resetSoft = () => { softNote.hidden = true; $('nextLbl').textContent = current === TOTAL ? 'Concluir ficha' : 'Continuar'; };
   $('next').addEventListener('click', () => {
-    if (!validate(current)) return;
+    const ok = validate(current);
+    if (!ok && !warned[current]) {
+      warned[current] = true;
+      softNote.textContent = 'Há campos em branco ou para revisar. Você pode seguir assim, mas a Dra. Joyce pode precisar pedir essas informações depois.';
+      softNote.hidden = false;
+      $('nextLbl').textContent = 'Continuar mesmo assim';
+      softNote.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+      return;
+    }
+    warned[current] = false; softNote.hidden = true;
     if (current === TOTAL) finish(); else goTo(current + 1);
   });
   $('back').addEventListener('click', () => goTo(current - 1));
@@ -252,7 +256,7 @@
     const na = 'Não informado';
     return {
       nome: val('nome').replace(/\s+/g, ' '), cpf: val('cpf'), nascimento: dob ? dob.iso.split('-').reverse().join('/') : '', idade: dob ? dob.age : 0,
-      telefone: val('telefone'), email: val('email') || na,
+      telefone: val('telefone'),
       cep: val('cep'), logradouro: val('logradouro'), numero: val('numero'), complemento: val('complemento') || '—',
       bairro: val('bairro'), cidade: val('cidade'), uf: val('uf').toUpperCase(),
       exames: picked('exames'), mamografia: one('mamografia'), preventivo: one('preventivo'),
@@ -280,7 +284,7 @@
   function textSummary(d) {
     const lines = [
       'Olá, Dra. Joyce! Concluí a ficha do Outubro Rosa.', '',
-      `Nome: ${d.nome}`, `CPF: ${d.cpf}`, `Nascimento: ${d.nascimento} (${d.idade} anos)`, `WhatsApp: ${d.telefone}`, `E-mail: ${d.email}`,
+      `Nome: ${d.nome}`, `CPF: ${d.cpf}`, `Nascimento: ${d.nascimento || 'não informado'}${d.idade ? ' (' + d.idade + ' anos)' : ''}`, `WhatsApp: ${d.telefone}`,
       `Endereço: ${d.logradouro}, ${d.numero}${d.complemento !== '—' ? ' · ' + d.complemento : ''} · ${d.bairro} · ${d.cidade}/${d.uf} · CEP ${d.cep}`, '',
       `Procuro: ${d.exames.join('; ')}`, `Última mamografia: ${d.mamografia}`, `Último preventivo: ${d.preventivo}`,
       `Alteração nas mamas: ${d.sintomas}${d.sintomas === 'Sim' ? ' (' + d.sinais + ')' : ''}`,
@@ -383,8 +387,8 @@
 
     section('1', 'Identificação');
     item('Nome completo', d.nome);
-    pair('CPF', d.cpf, 'Nascimento', `${d.nascimento} · ${d.idade} anos`);
-    pair('WhatsApp', d.telefone, 'E-mail', d.email);
+    pair('CPF', d.cpf, 'Nascimento', d.idade ? `${d.nascimento} · ${d.idade} anos` : '');
+    item('WhatsApp', d.telefone);
     y += 2; section('2', 'Endereço');
     item('Logradouro', `${d.logradouro}, ${d.numero}${d.complemento !== '—' ? ' · ' + d.complemento : ''}`);
     pair('Bairro', d.bairro, 'Cidade / UF', `${d.cidade} / ${d.uf}`);
@@ -407,7 +411,7 @@
     pdf.setFont('helvetica', 'normal'); pdf.setFontSize(8.2); pdf.setTextColor(...C.ink);
     pdf.text(wrap('Documento com informações declaradas pela paciente. Não constitui consulta, laudo, prescrição, pedido de exame nem assinatura médica. A avaliação e a emissão de pedidos são independentes.', U - 12, 8.2).slice(0, 3), L + 6, y + 12);
     footer();
-    const slug = d.nome.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-zA-Z0-9 ]/g, '').trim().replace(/\s+/g, '-').slice(0, 34).toLowerCase();
+    const slug = d.nome.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-zA-Z0-9 ]/g, '').trim().replace(/\s+/g, '-').slice(0, 34).toLowerCase() || 'paciente';
     return new File([pdf.output('blob')], `outubro-rosa-ficha-${slug}.pdf`, { type: 'application/pdf' });
   }
 
