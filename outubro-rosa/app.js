@@ -14,7 +14,7 @@
   const wizard = $('wizard');
   const steps = Array.from(document.querySelectorAll('.step'));
   const TOTAL = steps.length;
-  const CHEER = ['Vamos começar', 'Você está indo bem', 'Metade do caminho', 'Falta pouco', 'Quase lá', 'Última etapa'];
+  const NAMES = ['Identificação', 'Exames', 'Histórico de saúde', 'Contexto clínico', 'Dados do pedido', 'Atendimento'];
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
   let current = 1;
   let cepAbort = null;
@@ -156,7 +156,7 @@
     const nome = firstName(val('nome'));
     box.innerHTML = '';
     const mk = (tag, cls, text) => { const el = document.createElement(tag); if (cls) el.className = cls; el.textContent = text; return el; };
-    box.append(mk('p', 'pano-k', 'Seu panorama'), mk('h3', '', nome ? `${nome}, olha o que já dá para ver` : 'Olha o que já dá para ver'));
+    box.append(mk('p', 'pano-k', 'Referência por idade'), mk('h3', '', nome ? `Seu panorama, ${nome}` : 'Seu panorama'));
     rows.forEach(([title, tone, label, text]) => {
       const row = mk('div', 'pano-row', '');
       row.append(mk('span', `pill ${tone}`, label), mk('b', '', title), mk('p', '', text));
@@ -225,7 +225,7 @@
     steps.forEach((s, i) => { s.hidden = i + 1 !== current; });
     wizard.dataset.step = current;
     $('pCur').textContent = current;
-    $('pCheer').textContent = CHEER[current - 1];
+    $('pName').textContent = NAMES[current - 1];
     $('back').hidden = current === 1;
     $('nextLbl').textContent = current === TOTAL ? 'Concluir ficha' : 'Continuar';
     if (current === 2) renderPanorama();

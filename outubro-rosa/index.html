@@ -18,9 +18,9 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preload" href="fonts/fraunces-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=5">
+<link rel="stylesheet" href="styles.css?v=6">
 <script defer src="vendor/jspdf.umd.min.js"></script>
-<script defer src="app.js?v=5"></script>
+<script defer src="app.js?v=6"></script>
 </head>
 <body>
 <svg width="0" height="0" aria-hidden="true" focusable="false" class="sprite">
@@ -37,37 +37,30 @@
 
 <header class="top">
  <div class="top-in">
-  <a class="brand" href="#topo" aria-label="Dra. Joyce Radis, início da página">
-   <span class="mono" aria-hidden="true">JR</span>
-   <span class="brand-t"><strong>Dra. Joyce Radis</strong><small>Médica · CRM-ES 21188</small></span>
-  </a>
+  <a class="brand" href="#topo" aria-label="Dra. Joyce Radis, início da página"><span class="brand-t"><strong>Dra. Joyce Radis</strong><small>Médica · CRM-ES 21188</small></span></a>
   <a class="top-link" href="https://wa.me/5527998134032" target="_blank" rel="noopener noreferrer">WhatsApp</a>
  </div>
 </header>
 
 <main id="topo" class="stage">
  <section class="hero" aria-labelledby="h1">
-  <img class="hero-art" src="art/hero-flora.webp" width="980" height="1060" alt="" decoding="async">
-  <div class="hero-copy">
-   <p class="eyebrow"><span>Outubro Rosa</span><span>Saúde da mulher</span></p>
-   <h1 id="h1">Seus exames <em>estão em dia?</em></h1>
-   <p class="lead">Conte um pouco da sua história em cerca de 3 minutos. A Dra. Joyce analisa suas respostas e prepara os pedidos de exames de mama e ginecológicos que fizerem sentido para você.</p>
-   <ul class="assure">
-    <li><svg aria-hidden="true"><use href="#i-heart"/></svg>Cerca de 3 minutos</li>
-    <li><svg aria-hidden="true"><use href="#i-lock"/></svg>Sem criar conta, seus dados ficam no seu aparelho</li>
-   </ul>
-  </div>
+  <p class="eyebrow">Outubro Rosa 2026</p>
+  <h1 id="h1">Seus exames <em>estão em dia?</em></h1>
+  <p class="lead">Ficha de pré-avaliação para exames de mama e ginecológicos. A Dra. Joyce analisa suas respostas e prepara os pedidos indicados para o seu caso.</p>
+  <dl class="facts">
+   <div><dt>Tempo</dt><dd>cerca de 3 minutos</dd></div>
+   <div><dt>Cadastro</dt><dd>não é necessário</dd></div>
+   <div><dt>Seus dados</dt><dd>ficam no seu aparelho</dd></div>
+  </dl>
  </section>
 
  <section class="card" id="ficha" aria-labelledby="stepTitle">
-  <img class="card-sprig" src="art/sprig.webp" width="560" height="980" alt="" decoding="async">
 
   <div id="wizard" data-step="1">
    <div class="prog">
-    <div class="prog-top"><span class="prog-count">Passo <b id="pCur">1</b> de 6</span><span class="prog-cheer" id="pCheer">Vamos começar</span></div>
+    <div class="prog-top"><span class="prog-count">Passo <b id="pCur">1</b> de 6</span><span class="prog-name" id="pName">Identificação</span></div>
     <svg class="wave" viewBox="0 0 300 12" preserveAspectRatio="none" aria-hidden="true">
-     <path class="w-track" pathLength="100" d="M0 6Q12.5 0 25 6T50 6T75 6T100 6T125 6T150 6T175 6T200 6T225 6T250 6T275 6T300 6"/>
-     <path class="w-fill" pathLength="100" d="M0 6Q12.5 0 25 6T50 6T75 6T100 6T125 6T150 6T175 6T200 6T225 6T250 6T275 6T300 6"/>
+     <path class="w-track" pathLength="100" d="M0 6H300"/><path class="w-fill" pathLength="100" d="M0 6H300"/>
     </svg>
    </div>
 
@@ -75,7 +68,7 @@
 
     <!-- 1 · Você -->
     <section class="step" data-s="1" aria-labelledby="stepTitle">
-     <header class="step-h"><h2 id="stepTitle" tabindex="-1">Primeiro, quem é você?</h2><p>Só o essencial para começar.</p></header>
+     <header class="step-h"><h2 id="stepTitle" tabindex="-1">Identificação</h2><p>Dados básicos para começar.</p></header>
      <div class="field" data-f="nome"><label for="nome">Nome completo</label><input id="nome" name="nome" type="text" autocomplete="name" maxlength="120" placeholder="Como está no seu documento"><p class="msg" aria-live="polite"></p></div>
      <div class="row">
       <div class="field" data-f="nascimento"><label for="nascimento">Data de nascimento</label><input id="nascimento" name="nascimento" type="text" inputmode="numeric" autocomplete="bday" placeholder="DD/MM/AAAA" maxlength="10"><p class="msg" aria-live="polite"></p></div>
@@ -86,7 +79,7 @@
 
     <!-- 2 · Exames -->
     <section class="step" data-s="2" aria-labelledby="stepTitle" hidden>
-     <header class="step-h"><h2 tabindex="-1">Seus exames</h2><p>Marque o que você procura e conte quando foi a última vez.</p></header>
+     <header class="step-h"><h2 tabindex="-1">Exames</h2><p>O que você procura e quando foi a última vez.</p></header>
      <fieldset class="field" data-f="exames"><legend>O que você procura?</legend>
       <div class="chips">
        <label class="chip"><input type="checkbox" name="exames" value="Mamografia"><span>Mamografia</span></label>
@@ -119,7 +112,7 @@
 
     <!-- 3 · História -->
     <section class="step" data-s="3" aria-labelledby="stepTitle" hidden>
-     <header class="step-h"><h2 tabindex="-1">Sua história</h2><p>Estas respostas ajudam a Dra. a separar rastreamento de investigação. Responda do jeito que souber.</p></header>
+     <header class="step-h"><h2 tabindex="-1">Histórico de saúde</h2><p>Estas respostas ajudam a separar rastreamento de investigação. Responda conforme souber.</p></header>
      <fieldset class="field" data-f="sintomas"><legend>Você nota alguma alteração nas mamas hoje?</legend>
       <div class="chips">
        <label class="chip"><input type="radio" name="sintomas" value="Não"><span>Não</span></label>
@@ -172,7 +165,7 @@
 
     <!-- 4 · Momento -->
     <section class="step" data-s="4" aria-labelledby="stepTitle" hidden>
-     <header class="step-h"><h2 tabindex="-1">Seu momento</h2><p>Detalhes que mudam a escolha do exame. Falta pouco.</p></header>
+     <header class="step-h"><h2 tabindex="-1">Contexto clínico</h2><p>Informações que influenciam a escolha do exame.</p></header>
      <fieldset class="field" data-f="gestacao"><legend>Você está grávida ou amamentando?</legend>
       <div class="chips">
        <label class="chip"><input type="radio" name="gestacao" value="Não"><span>Não</span></label>
@@ -181,7 +174,7 @@
        <label class="chip"><input type="radio" name="gestacao" value="Prefiro conversar"><span>Prefiro conversar</span></label>
       </div><p class="msg" aria-live="polite"></p>
      </fieldset>
-     <fieldset class="field" data-f="menopausa"><legend>Como está seu ciclo? <span class="opt">opcional</span></legend>
+     <fieldset class="field" data-f="menopausa"><legend>Ciclo menstrual <span class="opt">opcional</span></legend>
       <div class="chips">
        <label class="chip"><input type="radio" name="menopausa" value="Ainda menstruo"><span>Ainda menstruo</span></label>
        <label class="chip"><input type="radio" name="menopausa" value="Já entrei na menopausa"><span>Já entrei na menopausa</span></label>
@@ -202,12 +195,12 @@
        <label class="chip"><input type="radio" name="protese" value="Outra cirurgia nas mamas"><span>Outra cirurgia</span></label>
       </div>
      </fieldset>
-     <div class="field" data-f="obs"><label for="obs">Quer contar mais alguma coisa? <span class="opt">opcional</span></label><textarea id="obs" name="obs" rows="3" maxlength="400" placeholder="Um exame alterado, uma dúvida, um medo. O que for importante para você."></textarea></div>
+     <div class="field" data-f="obs"><label for="obs">Observações <span class="opt">opcional</span></label><textarea id="obs" name="obs" rows="3" maxlength="400" placeholder="Exame alterado, dúvida ou qualquer informação relevante."></textarea></div>
     </section>
 
     <!-- 5 · Dados do pedido -->
     <section class="step" data-s="5" aria-labelledby="stepTitle" hidden>
-     <header class="step-h"><h2 tabindex="-1">Dados para o pedido</h2><p>Pedidos médicos precisam de CPF e endereço. É a parte mais burocrática, e é a penúltima.</p></header>
+     <header class="step-h"><h2 tabindex="-1">Dados para o pedido</h2><p>Os pedidos médicos exigem CPF e endereço.</p></header>
      <div class="field" data-f="cpf"><label for="cpf">CPF</label><input id="cpf" name="cpf" type="text" inputmode="numeric" autocomplete="off" placeholder="000.0.000-00" maxlength="14"><p class="msg" aria-live="polite"></p></div>
      <div class="field" data-f="cep"><label for="cep">CEP</label><input id="cep" name="cep" type="text" inputmode="numeric" autocomplete="postal-code" placeholder="00000-000" maxlength="9"><p class="hint" id="cepStatus" role="status" aria-live="polite">Ao digitar o CEP, preenchemos o endereço para você.</p><p class="msg" aria-live="polite"></p>
       <button type="button" class="link" id="cepManual">Não sei meu CEP, prefiro digitar o endereço</button></div>
@@ -227,7 +220,7 @@
 
     <!-- 6 · Atendimento -->
     <section class="step" data-s="6" aria-labelledby="stepTitle" hidden>
-     <header class="step-h"><h2 tabindex="-1">Como você prefere ser atendida?</h2><p>Última etapa. Depois dela, sua ficha vira um PDF pronto para enviar.</p></header>
+     <header class="step-h"><h2 tabindex="-1">Atendimento</h2><p>Última etapa. Em seguida, sua ficha é gerada em PDF.</p></header>
      <div class="plans">
       <label class="plan on"><input type="radio" name="modalidade" value="Particular" checked><span class="plan-body"><strong>Particular</strong><small>Atendimento individual pela Dra. Joyce</small></span><span class="plan-dot" aria-hidden="true"></span></label>
       <p class="sub plans-lbl">Convênios</p>
@@ -253,10 +246,10 @@
 
   <!-- Resultado -->
   <section id="result" class="result" hidden tabindex="-1" aria-labelledby="rTitle">
-   <img class="bloom" src="art/bloom.webp" width="520" height="520" alt="" decoding="async">
+   <span class="seal" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5.500 12.500l4.200 4.200L18.500 7.500" fill="none" stroke="currentColor" stroke-width="1.600" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
    <p class="eyebrow center"><span>Ficha concluída</span></p>
    <h2 id="rTitle">Parabéns, <span id="rName">você</span>.</h2>
-   <p class="r-lead">Sua ficha está pronta. Você acabou de dar um passo que muita gente adia, e ele merece ser celebrado.</p>
+   <p class="r-lead">Sua ficha está pronta. O próximo passo é enviá-la à Dra. Joyce.</p>
    <div class="r-attn" id="rAttn" hidden><b>Você assinalou alteração nas mamas.</b> A Dra. Joyce vai priorizar a sua análise. Se houver dor forte, secreção com sangue ou piora rápida, procure atendimento presencial sem esperar.</div>
    <div class="r-actions">
     <button type="button" class="btn big" id="share"><svg aria-hidden="true"><use href="#i-send"/></svg>Enviar minha ficha à Dra. Joyce</button>
@@ -272,11 +265,10 @@
    </ol>
 
    <aside class="thanks">
-    <img src="art/sprig.webp" width="560" height="980" alt="" decoding="async">
     <div>
-     <h3>Quer retribuir este cuidado?</h3>
-     <p>Esta ficha é oferecida com carinho na campanha do Outubro Rosa. Se fez sentido para você, uma contribuição de qualquer valor ajuda a manter projetos como este. É voluntária e não é condição para o atendimento.</p>
-     <button type="button" class="btn soft" data-open-pix><svg aria-hidden="true"><use href="#i-heart"/></svg>Apoiar com um Pix</button>
+     <h3>Apoie este projeto</h3>
+     <p>Contribuição voluntária, de qualquer valor, que ajuda a manter este projeto. Não é condição para o atendimento.</p>
+     <button type="button" class="btn soft" data-open-pix><svg aria-hidden="true"><use href="#i-heart"/></svg>Contribuir com Pix</button>
     </div>
    </aside>
 
@@ -287,28 +279,12 @@
   </section>
  </section>
 
- <section class="how" aria-labelledby="howT">
-  <h2 id="howT">Como funciona</h2>
-  <ol>
-   <li><span class="n">1</span><div><b>Você preenche a ficha</b><p>Perguntas curtas, de toque. Ao final, o PDF é gerado no seu aparelho.</p></div></li>
-   <li><span class="n">2</span><div><b>A Dra. Joyce analisa</b><p>Ela lê suas respostas e, se precisar, conversa com você para completar o quadro.</p></div></li>
-   <li><span class="n">3</span><div><b>Você recebe seus pedidos</b><p>Os exames indicados para o seu caso chegam prontos para você agendar.</p></div></li>
-  </ol>
- </section>
 
- <section class="faq" aria-labelledby="faqT">
-  <h2 id="faqT">Perguntas frequentes</h2>
-  <details><summary>Meus dados ficam salvos em algum lugar?</summary><p>Não. A ficha é montada no seu aparelho e só sai de lá se você enviar o PDF. Não há cadastro, banco de dados nem envio automático.</p></details>
-  <details><summary>Tenho convênio. Posso usar?</summary><p>Este atendimento é particular. A Dra. Joyce não é credenciada a operadoras de saúde. Se tiver dúvidas, escreva pelo WhatsApp antes de preencher.</p></details>
-  <details><summary>Preencher a ficha tem custo?</summary><p>Não. Condições do atendimento particular, quando existirem, são combinadas diretamente com a Dra. Joyce, pelo WhatsApp.</p></details>
-  <details><summary>Já tenho sintomas. Devo esperar a análise?</summary><p>Não. Nódulo, secreção, mudança na pele da mama ou dor persistente pedem atendimento presencial sem demora. Informe na ficha para que a sua análise seja priorizada.</p></details>
-  <details><summary>A ficha é um pedido de exame?</summary><p>Não. Ela reúne o que você declarou para a avaliação. A indicação e a emissão dos pedidos dependem da análise médica.</p></details>
- </section>
 </main>
 
 <footer class="foot">
  <div class="foot-in">
-  <div class="foot-brand"><span class="mono" aria-hidden="true">JR</span><div><strong>Dra. Joyce Radis de Souza de Oliveira</strong><small>Médica · CRM-ES 21188 · Espírito Santo</small></div></div>
+  <div class="foot-brand"><div><strong>Dra. Joyce Radis de Souza de Oliveira</strong><small>Médica · CRM-ES 21188 · Espírito Santo</small></div></div>
   <nav class="foot-links" aria-label="Links do rodapé">
    <a href="https://wa.me/5527998134032" target="_blank" rel="noopener noreferrer">WhatsApp</a>
    <a href="https://joyceradis.github.io/saude-viagem-foz/" target="_blank" rel="noopener noreferrer">Saúde pré-viagem</a>
