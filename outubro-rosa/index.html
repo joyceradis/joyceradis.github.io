@@ -18,7 +18,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preload" href="fonts/fraunces-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=16">
+<link rel="stylesheet" href="styles.css?v=17">
 <script defer src="vendor/jspdf.umd.min.js"></script>
 <script type="module" src="app.js?v=12"></script>
 </head>
@@ -41,17 +41,22 @@
 
 <header class="top">
  <div class="top-in">
-  <a class="brand" href="#topo" aria-label="Dra. Joyce Radis, início da página"><strong>Dra. Joyce Radis</strong><small>Médica · CRM-ES 21188</small></a>
+  <a class="brand" href="#topo" aria-label="Dra. Joyce Radis, início da página"><span class="mono" aria-hidden="true">JR</span><span class="brand-t"><strong>Dra. Joyce Radis</strong><small>Médica · CRM-ES 21188</small></span></a>
  </div>
 </header>
 
 <main id="topo" class="stage">
  <section class="hero" aria-labelledby="h1">
-  <p class="kicker">Uma ação da Dra. Joyce Radis</p>
+  <p class="kicker orn">Uma ação da Dra. Joyce Radis</p>
   <h1 id="h1">Outubro Rosa</h1>
   <img class="hero-flor" src="art/flor.webp" width="367" height="388" alt="" decoding="async">
   <p class="hero-q">Seus exames estão em dia?</p>
   <p class="lead">Nesta ação, preencha em 3 minutos e a Dra. Joyce prepara seus pedidos de exames de mama e ginecológicos.</p>
+  <ul class="trust" aria-label="Como funciona">
+   <li><svg aria-hidden="true"><use href="#i-search"/></svg><span>Avaliação médica individual</span></li>
+   <li><svg aria-hidden="true"><use href="#i-lock"/></svg><span>Ficha sigilosa no seu aparelho</span></li>
+   <li><svg aria-hidden="true"><use href="#i-doc"/></svg><span>Pedido para plano ou particular</span></li>
+  </ul>
  </section>
 
  <section class="card" id="ficha" aria-labelledby="stepTitle">
@@ -210,7 +215,7 @@
 
 <footer class="foot">
  <div class="foot-in">
-  <div class="foot-brand"><strong>Dra. Joyce Radis de Souza de Oliveira</strong><small>Médica · CRM-ES 21188 · Espírito Santo</small></div>
+  <div class="foot-brand"><span class="mono" aria-hidden="true">JR</span><strong>Dra. Joyce Radis de Souza de Oliveira</strong><small>Médica · CRM-ES 21188 · Espírito Santo</small></div>
   <nav class="foot-links" aria-label="Links do rodapé">
    <a href="https://wa.me/5527998134032" target="_blank" rel="noopener noreferrer">WhatsApp</a>
    <button type="button" class="link" id="openPrivacy2">Privacidade</button>
