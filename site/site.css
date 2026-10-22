@@ -140,6 +140,17 @@ em{font-style:italic;color:var(--wine)}
 .faq details[open] summary::after{transform:rotate(45deg)}
 .faq details p{padding:0 0 20px;color:var(--muted);animation:sobe .45s var(--ease) both}
 
+.destaques{display:grid;gap:16px;margin-top:40px}
+.destaques>div{padding:30px 26px;border:1px solid var(--line);border-radius:20px;background:#fff;transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+.destaques>div:hover{transform:translateY(-4px);box-shadow:0 30px 60px -40px rgba(74,32,55,.45)}
+.destaques h3{margin-top:12px;font:560 1.35rem/1.2 var(--serif);color:var(--ink)}
+.destaques p{margin-top:8px;color:var(--muted)}
+.formacao{display:grid;border-top:1px solid var(--line)}
+.formacao li{display:grid;gap:2px;padding:18px 0;border-bottom:1px solid var(--line)}
+.formacao b{font:560 1.15rem/1.3 var(--serif);color:var(--ink)}
+.formacao span{color:var(--muted)}
+@media (min-width:900px){.destaques{grid-template-columns:repeat(2,1fr)}}
+
 /* Fechamento e rodapé */
 .fecho{background:var(--bg)}
 .fecho-in{display:grid;gap:24px;justify-items:start;padding-top:80px;padding-bottom:150px}
