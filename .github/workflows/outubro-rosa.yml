@@ -1,0 +1,25 @@
+name: Outubro Rosa
+on:
+  pull_request:
+    paths: ['outubro-rosa/**', 'vercel.json', 'tests/**', '.github/workflows/outubro-rosa.yml']
+  push:
+    branches: [main]
+    paths: ['outubro-rosa/**', 'vercel.json', 'tests/**', '.github/workflows/outubro-rosa.yml']
+jobs:
+  teste:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Sintaxe dos scripts
+        run: for f in outubro-rosa/*.js; do node --check "$f"; done
+      - name: Instalar navegador
+        run: npm install --no-save playwright@1.48.2 && npx playwright install --with-deps chromium
+      - name: Testar a ficha no celular
+        run: |
+          python3 -m http.server 8080 >/dev/null 2>&1 &
+          sleep 1
+          node tests/outubro-rosa.mjs
