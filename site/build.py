@@ -9,7 +9,8 @@ ROOT = Path(__file__).resolve().parent.parent
 WA = 'https://wa.me/5527998134032?text='
 WA_CONSULTA = WA + 'Ol%C3%A1%2C%20Dra.%20Joyce!%20Gostaria%20de%20agendar%20uma%20consulta.'
 WA_CASA = WA + 'Ol%C3%A1%2C%20Dra.%20Joyce!%20Gostaria%20de%20saber%20sobre%20o%20atendimento%20em%20casa.'
-V = "5"
+V = "6"
+CALENDLY = 'https://calendly.com/drajoyceradis'
 
 NAV = [('/', 'Início'), ('/sobre/', 'Sobre'), ('/atendimentos/', 'Atendimentos'), ('/domiciliar/', 'Em casa')]
 
@@ -52,11 +53,10 @@ def page(path, title, desc, body, extra_head=''):
 {body}
 </main>
 <footer class="rodape">
- <div class="wrap rodape-in">
+ <div class="rodape-in">
   <div class="rodape-marca"><strong>Dra. Joyce Radis de Souza de Oliveira</strong><small>Médica · CRM-ES 21188 · Espírito Santo</small></div>
-  <nav aria-label="Rodapé">{links}<a href="/agendar/">Agendar</a></nav>
-  <div class="rodape-contato"><a href="{WA_CONSULTA}">WhatsApp (27) 99813-4032</a><a href="mailto:contato@drajoyceradis.com">contato@drajoyceradis.com</a></div>
-  <p class="nota">Conteúdo informativo, que não substitui consulta médica. Em urgência, procure o pronto-atendimento mais próximo.</p>
+  <nav class="rodape-links" aria-label="Rodapé">{links}<a href="/agendar/">Agendar</a><a href="{WA_CONSULTA}">WhatsApp</a></nav>
+  <p class="nota">Conteúdo informativo, que não substitui consulta médica. Em urgência, procure o pronto-atendimento mais próximo. · <a href="mailto:contato@drajoyceradis.com">contato@drajoyceradis.com</a></p>
  </div>
 </footer>
 </body>
@@ -212,7 +212,7 @@ page('/domiciliar/', 'Atendimento em casa · Dra. Joyce Radis',
 
 # Agendar
 faq = [
-    ('Como agendo?', 'Pelo WhatsApp. Responda com o melhor dia e período e se prefere consultório ou em casa.'),
+    ('Como agendo?', 'Para o consultório, escolha o horário na agenda online. Para atendimento em casa ou dúvidas, fale pelo WhatsApp.'),
     ('Atende plano de saúde?', 'O atendimento é particular. Se o seu plano reembolsa consultas, pergunte no agendamento sobre a documentação.'),
     ('Atende em casa no meu bairro?', 'Informe o bairro no WhatsApp para confirmar a disponibilidade.'),
     ('O que levar na consulta?', 'Exames recentes, a lista de remédios em uso e as dúvidas que você quiser tirar.'),
@@ -226,7 +226,7 @@ page('/agendar/', 'Agendar consulta · Dra. Joyce Radis',
 </div></section>
 <section class="bloco"><div class="wrap">
  <div class="opcoes">
-  <a class="opcao reveal" data-agendar href="{WA_CONSULTA}"><span class="num">01</span><h3>Consulta no consultório</h3><p>Escolha o melhor dia e horário.</p><span class="ir">Agendar pelo WhatsApp</span></a>
+  <a class="opcao reveal" href="{CALENDLY}"><span class="num">01</span><h3>Consulta no consultório</h3><p>Escolha o dia e o horário direto na agenda online.</p><span class="ir">Ver horários disponíveis</span></a>
   <a class="opcao reveal" href="{WA_CASA}"><span class="num">02</span><h3>Consulta em casa</h3><p>Conte o caso e o bairro para confirmarmos.</p><span class="ir">Consultar disponibilidade</span></a>
  </div>
  <div class="faq"><p class="kicker reveal">Dúvidas</p>{faqs}</div>

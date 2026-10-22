@@ -1,6 +1,6 @@
 /* Site da Dra. Joyce Radis: menu, cabeçalho, revelação ao rolar e faixa do Outubro Rosa.
    AGENDA: quando houver link do Calendly, coloque aqui e os botões de consulta passam a usá-lo. */
-const AGENDA = '';
+const AGENDA = 'https://calendly.com/drajoyceradis';
 const reduz = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // Faixa do Outubro Rosa só até 31/10/2026
