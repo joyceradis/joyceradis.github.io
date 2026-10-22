@@ -6,7 +6,7 @@ import { createPdf } from './pdf.js';
 /* Edite aqui: contato, página pública e Pix. */
 const CONFIG = {
   whatsapp: '5527998134032',
-  siteUrl: 'https://joyceradis.github.io/outubro-rosa/',
+  siteUrl: 'https://drajoyceradis.vercel.app/outubro-rosa/',
   pixPayload: '00020126580014br.gov.bcb.pix0136e5d18663-c4e4-4d42-9696-8827dbafb3245204000053039865802BR5925JOYCE_RADIS_DE_SOUZA_DE_O6005Serra610929161-78662290525MCDY32430233178986346970463043652',
   pixEmail: 'contato@drajoyceradis.com'
 };
