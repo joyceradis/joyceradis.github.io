@@ -196,7 +196,6 @@ em{font-style:italic;color:var(--wine)}
   .manifesto{padding:120px 0}
   .bloco{padding:110px 0}
   .portas,.opcoes{grid-template-columns:repeat(3,1fr)}
-  .opcoes{grid-template-columns:repeat(2,1fr)}
   .servs{grid-template-columns:repeat(2,1fr)}
   .passos{grid-template-columns:repeat(4,1fr)}
   .duas{grid-template-columns:1fr 1.4fr;gap:56px}

@@ -44,7 +44,7 @@ await page.goto(home);
 await page.waitForLoadState('networkidle');
 if (!(await page.isVisible('h1'))) fail('título da página inicial não aparece');
 if (!(await page.isVisible('.hero-foto img'))) fail('foto da página inicial não aparece');
-for (const p of ['sobre/', 'atendimentos/', 'domiciliar/', 'agendar/']) {
+for (const p of ['inicio/', 'sobre/', 'atendimentos/', 'domiciliar/', 'agendar/']) {
   const r = await page.request.get(new URL('../' + p, BASE).href);
   if (r.status() !== 200) fail(`página ${p} não abre (${r.status()})`);
 }

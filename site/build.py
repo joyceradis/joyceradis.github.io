@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parent.parent
 WA = 'https://wa.me/5527998134032?text='
 WA_CONSULTA = WA + 'Ol%C3%A1%2C%20Dra.%20Joyce!%20Gostaria%20de%20agendar%20uma%20consulta.'
 WA_CASA = WA + 'Ol%C3%A1%2C%20Dra.%20Joyce!%20Gostaria%20de%20saber%20sobre%20o%20atendimento%20em%20casa.'
-V = "7"
+V = "8"
 CALENDLY = 'https://calendly.com/drajoyceradis'
 
 NAV = [('/inicio/', 'Início'), ('/sobre/', 'Sobre'), ('/atendimentos/', 'Atendimentos'), ('/domiciliar/', 'Em casa')]
@@ -66,6 +66,10 @@ def page(path, title, desc, body, extra_head=''):
     out = ROOT / path.strip('/') / 'index.html' if path != '/' else ROOT / 'index.html'
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(html, encoding='utf-8')
+    if path == '/':
+        # /inicio/ precisa existir como arquivo: o GitHub Pages não aplica o vercel.json
+        (ROOT / 'inicio').mkdir(exist_ok=True)
+        (ROOT / 'inicio' / 'index.html').write_text(html, encoding='utf-8')
 
 
 def fecho(titulo='Vamos cuidar da sua saúde por inteiro?'):
@@ -81,7 +85,7 @@ page('/', 'Dra. Joyce Radis · Médica · Medicina integral',
   <p class="kicker anim" data-d="1">Medicina integral</p>
   <h1 class="anim" data-d="2">Joyce <em>Radis</em></h1>
   <p class="hero-frase anim" data-d="3">Um olhar inteiro sobre a sua saúde.</p>
-  <p class="lead anim" data-d="4">Consulta com tempo para ouvir, examinar e explicar. No consultório ou na sua casa, com acompanhamento de perto depois.</p>
+  <p class="lead anim" data-d="4">Consulta com tempo para ouvir, examinar e explicar. No consultório, na sua casa ou por vídeo, com acompanhamento de perto depois.</p>
   <div class="ctas anim" data-d="5"><a class="btn" href="/agendar/">Agendar consulta</a><a class="btn btn-ghost" href="/domiciliar/">Atendimento em casa</a></div>
   <p class="cred anim" data-d="6"><span>Médica</span><span>CRM-ES 21188</span><span>Pós-graduação em Endocrinologia</span></p>
  </div>
@@ -105,8 +109,8 @@ page('/', 'Dra. Joyce Radis · Médica · Medicina integral',
  <p class="kicker reveal">Como funciona</p>
  <h2 class="reveal">Do primeiro contato ao retorno</h2>
  <ol class="passos">
-  <li class="reveal"><b>01</b><h3>Agende</h3><p>Escolha o melhor dia e horário pelo WhatsApp.</p></li>
-  <li class="reveal"><b>02</b><h3>Consulta</h3><p>No consultório ou em casa, com tempo para tudo.</p></li>
+  <li class="reveal"><b>01</b><h3>Agende</h3><p>Consultório e teleconsulta pela agenda online; em casa, pelo WhatsApp.</p></li>
+  <li class="reveal"><b>02</b><h3>Consulta</h3><p>No consultório, em casa ou por vídeo, com tempo para tudo.</p></li>
   <li class="reveal"><b>03</b><h3>Plano claro</h3><p>Você sai sabendo o que fazer, quais exames e quando voltar.</p></li>
   <li class="reveal"><b>04</b><h3>Acompanhamento</h3><p>Retorno e contato próximo para ajustar o cuidado.</p></li>
  </ol>
@@ -155,15 +159,16 @@ servicos = [
     ('Saúde metabólica', 'Acompanhamento de condições que mexem com energia, peso e disposição.', ['Diabetes e pré-diabetes', 'Tireoide', 'Colesterol e triglicerídeos', 'Controle de peso']),
     ('Coração e pressão', 'Cuidado com o risco cardiovascular antes que ele vire problema.', ['Hipertensão', 'Avaliação de risco cardiovascular', 'Mudanças de rotina com acompanhamento']),
     ('Saúde da mulher', 'Prevenção com atenção às fases da vida.', ['Pedidos de mamografia, ultrassom e preventivo', 'Climatério e menopausa', 'Orientação sobre exames de rotina']),
+    ('Teleconsulta', 'Consulta por vídeo, de onde você estiver, com receitas e pedidos de exames em formato digital.', ['Retornos e acompanhamento', 'Avaliação de resultados de exames', 'Ajustes no tratamento']),
 ]
 cards = ''.join(
     f'<article class="serv reveal"><span class="num">{i:02d}</span><h3>{t}</h3><p>{d}</p><ul>{"".join(f"<li>{x}</li>" for x in itens)}</ul></article>'
     for i, (t, d, itens) in enumerate(servicos, 1))
 page('/atendimentos/', 'Atendimentos · Dra. Joyce Radis',
-     'Consulta clínica, check-up, saúde metabólica, coração e pressão e saúde da mulher, com a Dra. Joyce Radis.',
+     'Consulta clínica, check-up, saúde metabólica, coração e pressão, saúde da mulher e teleconsulta, com a Dra. Joyce Radis.',
      f'''<section class="sub-hero simples"><div class="wrap">
  <p class="kicker anim" data-d="1">Atendimentos</p><h1 class="anim" data-d="2">Cuidado <em>completo</em>, em cada fase.</h1>
- <p class="lead anim" data-d="3">Atendimento particular, no consultório ou em casa. Veja como posso ajudar.</p>
+ <p class="lead anim" data-d="3">Atendimento particular, no consultório, em casa ou por vídeo. Veja como posso ajudar.</p>
 </div></section>
 <section class="bloco"><div class="wrap"><div class="servs">{cards}</div></div></section>
 {fecho('Não sabe por onde começar? A primeira consulta organiza tudo.')}''')
@@ -210,14 +215,15 @@ page('/domiciliar/', 'Atendimento em casa · Dra. Joyce Radis',
 
 # Agendar
 faq = [
-    ('Como agendo?', 'Para o consultório, escolha o horário na agenda online. Para atendimento em casa ou dúvidas, fale pelo WhatsApp.'),
+    ('Como agendo?', 'Para o consultório ou a teleconsulta, escolha o horário na agenda online. Para atendimento em casa ou dúvidas, fale pelo WhatsApp.'),
     ('Atende plano de saúde?', 'O atendimento é particular. Se o seu plano reembolsa consultas, pergunte no agendamento sobre a documentação.'),
+    ('Como funciona a teleconsulta?', 'Por vídeo, pelo celular ou computador. Você recebe o link depois de agendar, e receitas e pedidos de exames chegam em formato digital.'),
     ('Atende em casa no meu bairro?', 'Informe o bairro no WhatsApp para confirmar a disponibilidade.'),
     ('O que levar na consulta?', 'Exames recentes, a lista de remédios em uso e as dúvidas que você quiser tirar.'),
 ]
 faqs = ''.join(f'<details class="reveal"><summary>{q}</summary><p>{a}</p></details>' for q, a in faq)
 page('/agendar/', 'Agendar consulta · Dra. Joyce Radis',
-     'Agende sua consulta com a Dra. Joyce Radis pelo WhatsApp, no consultório ou em casa.',
+     'Agende sua consulta com a Dra. Joyce Radis: agenda online para o consultório e a teleconsulta, e WhatsApp para atendimento em casa.',
      f'''<section class="sub-hero simples"><div class="wrap">
  <p class="kicker anim" data-d="1">Agendar</p><h1 class="anim" data-d="2">Vamos <em>marcar</em> sua consulta.</h1>
  <p class="lead anim" data-d="3">Escolha como prefere ser atendida e fale direto comigo.</p>
@@ -226,6 +232,7 @@ page('/agendar/', 'Agendar consulta · Dra. Joyce Radis',
  <div class="opcoes">
   <a class="opcao reveal" href="{CALENDLY}"><span class="num">01</span><h3>Consulta no consultório</h3><p>Escolha o dia e o horário direto na agenda online.</p><span class="ir">Ver horários disponíveis</span></a>
   <a class="opcao reveal" href="{WA_CASA}"><span class="num">02</span><h3>Consulta em casa</h3><p>Conte o caso e o bairro para confirmarmos.</p><span class="ir">Consultar disponibilidade</span></a>
+  <a class="opcao reveal" href="{CALENDLY}"><span class="num">03</span><h3>Teleconsulta</h3><p>Consulta por vídeo, de onde você estiver.</p><span class="ir">Ver horários disponíveis</span></a>
  </div>
  <div class="faq"><p class="kicker reveal">Dúvidas</p>{faqs}</div>
 </div></section>''')
